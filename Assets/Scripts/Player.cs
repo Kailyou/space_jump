@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 	// configuration
-	public float maxVelocity = 3;
+	public float maxVelocity = 10;
 	public float speed = 30;
 	public float jumpPower = 250f;
 	public int maxHealth = 100;

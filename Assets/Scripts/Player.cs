@@ -26,6 +26,18 @@ public class Player : MonoBehaviour {
 		rb2d = gameObject.GetComponent<Rigidbody2D>();
 		animator = gameObject.GetComponent<Animator>();
 	}
+
+	private void do_jump() {
+		if(grounded) {
+			rb2d.AddForce(Vector2.up*jumpPower);
+			canDoubleJump = true;
+		}
+		else if(canDoubleJump) {
+			rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+			rb2d.AddForce(Vector2.up*jumpPower);
+			canDoubleJump = false;
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -54,15 +66,17 @@ public class Player : MonoBehaviour {
 		}
 
 		// jump
-		if (!isCrouching && Input.GetButtonDown("Jump")) {
-			if(grounded) {
-				rb2d.AddForce(Vector2.up*jumpPower);
-				canDoubleJump = true;
-			}
-			else if(canDoubleJump) {
-				rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
-				rb2d.AddForce(Vector2.up*jumpPower);
-				canDoubleJump = false;
+		if (!isCrouching) {
+			if (Input.GetButtonDown("Jump"))
+				do_jump ();
+			if (Input.GetMouseButtonDown(0))
+				do_jump ();
+
+			foreach (var touch in Input.touches) {
+				if (touch.phase == TouchPhase.Began) {
+					do_jump ();
+					break;
+				}
 			}
 		}
 	}
@@ -82,6 +96,8 @@ public class Player : MonoBehaviour {
 
 			// walk left/right
 			rb2d.AddForce (Vector2.right * speed * h);
+			rb2d.AddForce (Vector2.right * speed * Input.acceleration.x);
+
 			if (rb2d.velocity.x > maxVelocity) {
 				rb2d.velocity = new Vector2 (maxVelocity, rb2d.velocity.y);
 			} else if (rb2d.velocity.x < -maxVelocity) {

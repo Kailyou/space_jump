@@ -112,18 +112,33 @@ public class Player : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		
+
+		// walking left or right
 		if (!isCrouching) {
-			float h = Input.GetAxis ("Horizontal");
+			
+			float moveHorizontal  = Input.GetAxis ("Horizontal");
+			float moveVertical    = Input.GetAxis ("Vertical");
 
 			// stop walking immediatly when the user releases the button
-			Vector3 tmp = rb2d.velocity;
-			tmp.x *= 0.75f;
-			rb2d.velocity = tmp;
+			//Vector3 tmp = rb2d.velocity;
+			//tmp.x *= 0.75f;
+			//rb2d.velocity = tmp;
 
-			// walk left/right
-			rb2d.AddForce (Vector2.right * speed * h);
-			rb2d.AddForce (Vector2.right * speed * Input.acceleration.x);
+
+
+			/*test
+			 * 		//hier wird physik berechnet
+			float hor = Input.GetAxis ("Horizontal");
+			anim.SetFloat ("Speed", Mathf.Abs (hor));
+
+			rb2d.velocity = new Vector2 (hor * MAX_SPEED, rb2d.velocity.y);
+			*/
+
+			//rb2d.velocity = new Vector2 (h * speed, rb2d.velocity.y);
+
+			//rb2d.AddForce (Vector2.right * speed * h);
+			//rb2d.AddForce (Vector2.right * speed * Input.acceleration.x);
+
 
 			if (rb2d.velocity.x > maxVelocity) {
 				rb2d.velocity = new Vector2 (maxVelocity, rb2d.velocity.y);

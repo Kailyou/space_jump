@@ -5,9 +5,9 @@ public class Player : MonoBehaviour {
 	
 	// configuration
 	public float maxVelocity = 10;
-	public float speed = 30;
-	public float jumpPower = 250f;
-	public int   maxHealth = 100;
+	public float speed       = 30;
+	public float jumpPower   = 250f;
+	public int   maxHealth   = 100;
 
 	// refs
 	private Rigidbody2D rb2d;
@@ -46,6 +46,10 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (died) {
+			return;
+		}
 
 		/* animations */
 
@@ -91,8 +95,6 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate() {
-		
 		//idle timer
 		if (rb2d.velocity == Vector2.zero) {
 			idling = true;
@@ -106,11 +108,10 @@ public class Player : MonoBehaviour {
 
 			animator.SetBool ("idling", timer <= 0f);
 		}
+	}
 
-		if (died) {
-			return;
-		}
-
+	void FixedUpdate() {
+		
 		if (!isCrouching) {
 			float h = Input.GetAxis ("Horizontal");
 

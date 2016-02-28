@@ -809,13 +809,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 110226168}
-    m_Position: {x: 372, y: -180, z: 0}
+    m_Position: {x: 408, y: -192, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110237934}
-    m_Position: {x: 120, y: -252, z: 0}
+    m_Position: {x: 156, y: -240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110260448}
-    m_Position: {x: 120, y: -180, z: 0}
+    m_Position: {x: -108, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110285118}
     m_Position: {x: 156, y: -312, z: 0}

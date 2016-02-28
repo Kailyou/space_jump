@@ -93,7 +93,8 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}
-	}
+	
+		/* others */
 
 		//idle timer
 		if (rb2d.velocity == Vector2.zero) {

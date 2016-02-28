@@ -2,24 +2,29 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
+	
 	// configuration
 	public float maxVelocity = 10;
 	public float speed = 30;
 	public float jumpPower = 250f;
-	public int maxHealth = 100;
+	public int   maxHealth = 100;
 
 	// refs
 	private Rigidbody2D rb2d;
-	private Animator animator;
+	private Animator    animator;
 
 	// status vars
-	private bool isMirrored = false;
+	private bool isMirrored    = false;
 	private bool canDoubleJump = false;
-	private bool isCrouching = false;
-	private bool died = false;
+	private bool isCrouching   = false;
+	private bool died          = false;
+	private bool idling        = false;
 
 	// externally set
 	public bool grounded = false; // Ridgidbody2D
+
+	//timer
+	private float timer = 3f;
 
 	// Use this for initialization
 	void Start () {
@@ -41,16 +46,21 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// publish data to animator
-		//animator.SetBool ("grounded", grounded);
-		//animator.SetFloat ("speed", Mathf.Abs(rb2d.velocity.x));
-		//animator.SetBool ("Crouching", isCrouching);
+
+		/* animations */
+
+		animator.SetBool ("grounded", grounded);
+		animator.SetFloat ("speed", Mathf.Abs(rb2d.velocity.x));
+		animator.SetBool ("crouching", isCrouching);
 
 		if (died) {
-			//animator.SetBool("Dead", true);
+			animator.SetBool("is_dead", true);
 			//gameoverMenu.onGameOver(!isLocalPlayer);
 			return;
 		}
+
+
+		/* movement */
 
 		// walk left image transformation
 		if (!isMirrored && rb2d.velocity.x < -0.1) {
@@ -65,7 +75,7 @@ public class Player : MonoBehaviour {
 			isMirrored = false;
 		}
 
-		// jump
+		// jumping
 		if (!isCrouching) {
 			if (Input.GetButtonDown("Jump"))
 				do_jump ();
@@ -82,6 +92,21 @@ public class Player : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		
+		//idle timer
+		if (rb2d.velocity == Vector2.zero) {
+			idling = true;
+		} else {
+			idling = false;
+			timer = 3f;
+		}
+
+		if(idling) {
+			timer -= Time.deltaTime;
+
+			animator.SetBool ("idling", timer <= 0f);
+		}
+
 		if (died) {
 			return;
 		}

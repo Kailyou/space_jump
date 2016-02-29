@@ -453,6 +453,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967039
   groundCheck: {fileID: 563586478}
+  laserPrefab: {fileID: 112520, guid: c6942cac678aaff429ce763df98e8ff0, type: 2}
+  laserSpawnPoint: {fileID: 1650732347}
+  laserSpeed: 500
 --- !u!50 &1176157569
 Rigidbody2D:
   serializedVersion: 2
@@ -603,7 +606,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1650732346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.02, y: -0.31, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1176157571}

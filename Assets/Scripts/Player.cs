@@ -17,6 +17,10 @@ public class Player : MonoBehaviour {
 	private bool attacking   = false;
 
 	// refs
+	public GameObject laserPrefab;
+	public Transform  laserSpawnPoint;
+	public float      laserSpeed = 500;
+
 	private Rigidbody2D rb2d;
 	private Animator    animator;
 
@@ -90,8 +94,15 @@ public class Player : MonoBehaviour {
 		//attack
 		if (attacking)	{
 			animator.SetTrigger ("attacking");
-		}
+			GameObject laser = (GameObject) Instantiate (laserPrefab, laserSpawnPoint.position, Quaternion.identity);
 
+			if (lookingRight)
+				laser.GetComponent<Rigidbody2D> ().AddForce (Vector3.right * laserSpeed);
+			else
+				laser.GetComponent<Rigidbody2D> ().AddForce (Vector3.left * laserSpeed);
+
+			attacking = false;
+		}
 	}
 
 	public void Flip() {

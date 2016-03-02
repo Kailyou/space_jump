@@ -3,26 +3,20 @@ using System.Collections;
 
 public class CollisionDamage : MonoBehaviour {
 
-	public float damage = 1;
-
-	void OnTriggerEnter2D(Collider2D other)
+	void OnCollisionEnter2D (Collision2D other)
 	{
-		Debug.Log ("enter...");
-
-		if (other.CompareTag ("Player")) 
-			other.SendMessage ("ApplyDamage", damage);
+		if (other.collider.CompareTag ("Player")) {
+			//Debug.Log ("enter");
+			other.collider.SendMessage ("ActivateDot", "iceSpikes", SendMessageOptions.DontRequireReceiver);
+		}
+			
 	}
 
-	void OnTriggerStay2D(Collider2D other)
+	void OnCollisionExit2D(Collision2D other)
 	{
-		Debug.Log ("stay...");
-
-		if (other.CompareTag ("Player")) 
-			other.SendMessage ("ApplyDamage", damage);
-	}
-
-	void OnTriggerExit2D(Collider2D other)
-	{
-		Debug.Log ("exit...");
+		if (other.collider.CompareTag ("Player")) {
+			//Debug.Log ("exit");
+			other.collider.SendMessage ("DeactiveDot", SendMessageOptions.DontRequireReceiver);
+		}
 	}
 }

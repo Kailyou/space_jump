@@ -11,6 +11,11 @@ public class HealthController : MonoBehaviour {
 	private bool isDamageable 			= true;
 	private bool isDead 				= false;
 
+	private bool isDotActive  			= false;
+	private float dotDamage				= 0f;
+	private float dotTimerDelta 		= 0f;
+	private float dotTimerTillDamage	= 0f;
+
 	private Animator animator;
 	private PlayerController playerController;
 
@@ -20,9 +25,7 @@ public class HealthController : MonoBehaviour {
 		animator        	= GetComponent<Animator> ();
 		playerController    = GetComponent<PlayerController>();
 
-		//test with the active scene,
-		//this probably will be needed to be changed later on
-		//the first scene which will need to use the healthController is the active scene
+		//start with max values at first scene
 		if (SceneManager.GetActiveScene().buildIndex == 0) {
 			currentLifePoints = maxLifePoints;
 			currentHealthPoints = maxHealthPoints;
@@ -36,11 +39,9 @@ public class HealthController : MonoBehaviour {
 	
 	void ApplyDamage(float damage)
 	{
-		Debug.Log ("apply damage - damagable: " + isDamageable);
-
 		if (isDamageable)
 		{
-			Debug.Log ("LIFE: " + currentLifePoints + " HP: " + currentHealthPoints);
+			Debug.Log ("lives :" + currentLifePoints + " , hp : " + currentHealthPoints);
 
 			currentHealthPoints -= damage;
 
@@ -56,22 +57,48 @@ public class HealthController : MonoBehaviour {
 				}
 				else
 				{
-					Damaging();
+					playDamageAnimation();
 				}
 
 				isDamageable = false;
-				//Invoke ("ResetIsDamageAble", 1);
+				Invoke ("ResetIsDamageAble", 1);
 			}
 		}
 	}
 
 	void ResetIsDamageAble() {
-		Debug.Log ("resetted er?");
 		isDamageable = true;
-		Debug.Log ("hat er resetted?");
 	}
 
+	//activates the dot damage
+	void ActivateDot(string type)
+	{
+		isDotActive   	= true;
 
+		if (type.Equals ("iceSpikes"))
+		{
+			dotDamage = 1f;
+			dotTimerTillDamage	= 1f;	
+		} 
+
+		//secure that at least 1 damage will be taken each second
+		if (dotTimerTillDamage <= 0)
+		{
+			dotDamage = 1f;
+			dotTimerTillDamage = 1f;
+		}
+	}
+
+	//deactivates the dot damage
+	void DeactiveDot()
+	{
+		isDotActive = false;
+		dotDamage 			= 0f;
+	}
+
+	//plays dieing animation and deactivates the player's controll
+	//restarts the level if the player is not game over
+	//restarts the whole game if the player is game over
 	void Dying() {
 
 		animator.SetBool ("is_dead", true);
@@ -91,6 +118,7 @@ public class HealthController : MonoBehaviour {
 		SceneManager.LoadScene (0);
 	}
 
+	//revieves the player and activates the player's control again
 	void RestartLevel() {
 		currentHealthPoints = maxHealthPoints;
 		isDead = false;
@@ -108,7 +136,7 @@ public class HealthController : MonoBehaviour {
 		//generate new level and reset player
 	}
 
-	void Damaging() {
+	void playDamageAnimation() {
 		animator.SetTrigger ("is_hurt");
 	}
 
@@ -116,5 +144,20 @@ public class HealthController : MonoBehaviour {
 	void OnDestroy() {
 		PlayerPrefs.SetInt ("currentLifePoints", currentLifePoints);
 		PlayerPrefs.SetFloat ("currentHealthPoints", currentHealthPoints);
+	}
+
+	void Update ()
+	{
+		if (isDotActive) 
+		{
+			dotTimerDelta += Time.deltaTime;
+
+			if (dotTimerDelta >= dotTimerTillDamage)
+			{
+				//Debug.Log ("test");
+				ApplyDamage (dotDamage);
+				dotTimerDelta = 0f;
+			}
+		}
 	}
 }

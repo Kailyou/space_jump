@@ -2,29 +2,39 @@
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-	
-	// configuration
+
+	// references
+	private Rigidbody2D rb2d;
+	private Animator    animator;
+
+	// configuration, visible inspector
 	public float maxSpeed	 = 10;
 	public float jumpForce   = 550;
+
+	// configuration, not visible at inspector
 	[HideInInspector]
 	public bool lookingRight = true;
+	[HideInInspector]
 	public bool idling       = false;
+	[HideInInspector]
 	public bool crouching    = false;
-	public LayerMask whatIsGround;
-	public Transform groundCheck;
+	[HideInInspector]
 	private bool grounded    = false;
+	[HideInInspector]
 	private bool jumping     = false;
+	[HideInInspector]
 	private bool attacking   = false;
 
-	// refs
+	// collision detection
+	public LayerMask whatIsGround;
+	public Transform groundCheck;
+
+	// q attack (laser)
 	public GameObject laserPrefab;
 	public Transform  laserSpawnPoint;
 	public float      laserSpeed = 500;
 
-	private Rigidbody2D rb2d;
-	private Animator    animator;
-
-	//timer
+	//timer for idle animation
 	private float timer = 3f;
 
 	// Use this for initialization

@@ -36,10 +36,12 @@ public class HealthController : MonoBehaviour {
 	
 	void ApplyDamage(float damage)
 	{
-		Debug.Log ("LIFE: " + currentLifePoints + " HP: " + currentHealthPoints);
+		Debug.Log ("apply damage - damagable: " + isDamageable);
 
 		if (isDamageable)
 		{
+			Debug.Log ("LIFE: " + currentLifePoints + " HP: " + currentHealthPoints);
+
 			currentHealthPoints -= damage;
 
 			//take the max of 0 and currentHealth
@@ -49,6 +51,7 @@ public class HealthController : MonoBehaviour {
 			{
 				if (currentHealthPoints == 0)
 				{
+					isDead = true;
 					Dying();
 				}
 				else
@@ -57,18 +60,19 @@ public class HealthController : MonoBehaviour {
 				}
 
 				isDamageable = false;
-				Invoke ("ResetIsDamageAble", 1);
+				//Invoke ("ResetIsDamageAble", 1);
 			}
 		}
 	}
 
 	void ResetIsDamageAble() {
+		Debug.Log ("resetted er?");
 		isDamageable = true;
+		Debug.Log ("hat er resetted?");
 	}
 
 
 	void Dying() {
-		isDead = true;
 
 		animator.SetBool ("is_dead", true);
 

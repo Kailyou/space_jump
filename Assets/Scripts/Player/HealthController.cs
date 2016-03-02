@@ -4,14 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour {
 
-	public float maxHealthPoints	  	= 5;
+	public float  maxHealthPoints	  	= 5;
 	private float currentHealthPoints;
-	private int maxLifePoints			= 3;
-	private int currentLifePoints;
-	private bool isDamageable 			= true;
-	private bool isDead 				= false;
+	private int   maxLifePoints			= 3;
+	private int   currentLifePoints;
+	private bool  isDamageable 			= true;
+	private bool  isDead 				= false;
 
-	private bool isDotActive  			= false;
+	private bool  isDotActive  			= false;
 	private float dotDamage				= 0f;
 	private float dotTimerDelta 		= 0f;
 	private float dotTimerTillDamage	= 0f;
@@ -36,12 +36,32 @@ public class HealthController : MonoBehaviour {
 			currentLifePoints   = PlayerPrefs.GetInt ("currentLifePoints");
 		}
 	}
-	
+
+
+	void receiveDotDamage(float damage)
+	{
+		currentHealthPoints -= damage;
+		currentHealthPoints = Mathf.Max (0, currentHealthPoints);
+
+		if (!isDead)
+		{
+			if (currentHealthPoints == 0)
+			{
+				isDead = true;
+				Dying();
+			}
+			else
+			{
+				playHurtAnimation();
+			}
+		}
+	}
+
 	void ApplyDamage(float damage)
 	{
 		if (isDamageable)
 		{
-			Debug.Log ("lives :" + currentLifePoints + " , hp : " + currentHealthPoints);
+			//Debug.Log ("lives :" + currentLifePoints + " , hp : " + currentHealthPoints);
 
 			currentHealthPoints -= damage;
 
@@ -57,7 +77,7 @@ public class HealthController : MonoBehaviour {
 				}
 				else
 				{
-					playDamageAnimation();
+					playHurtAnimation();
 				}
 
 				isDamageable = false;
@@ -136,7 +156,7 @@ public class HealthController : MonoBehaviour {
 		//generate new level and reset player
 	}
 
-	void playDamageAnimation() {
+	void playHurtAnimation() {
 		animator.SetTrigger ("is_hurt");
 	}
 

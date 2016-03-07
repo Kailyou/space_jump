@@ -1,21 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour {
 
-	public float  maxHealthPoints	  	= 5;
+	//PLAYER STATS
+	public float  maxHealthPoints	  	= 17;
 	private float currentHealthPoints;
-	private int   maxLifePoints			= 3;
+	private int   maxLifePoints			= 5;
 	private int   currentLifePoints;
 	private bool  isDamageable 			= true;
 	private bool  isDead 				= false;
 
+	//GUI
+	public Image healthGui;
+	public Text lifePointsText;
+	public Text messageText;
+
+	//DAMAGE DOT
 	private bool  isDotActive  			= false;
 	private float dotDamage				= 0f;
 	private float dotTimerDelta 		= 0f;
 	private float dotTimerTillDamage	= 0f;
 
+	//REFERENCES
 	private Animator animator;
 	private PlayerController playerController;
 
@@ -35,38 +44,20 @@ public class HealthController : MonoBehaviour {
 			currentHealthPoints	= PlayerPrefs.GetFloat ("currentHealthPoints");
 			currentLifePoints   = PlayerPrefs.GetInt ("currentLifePoints");
 		}
-	}
 
-
-	void receiveDotDamage(float damage)
-	{
-		currentHealthPoints -= damage;
-		currentHealthPoints = Mathf.Max (0, currentHealthPoints);
-
-		if (!isDead)
-		{
-			if (currentHealthPoints == 0)
-			{
-				isDead = true;
-				Dying();
-			}
-			else
-			{
-				playHurtAnimation();
-			}
-		}
+		messageText.text = "";
+		updateGUI ();
 	}
 
 	void ApplyDamage(float damage)
 	{
 		if (isDamageable)
 		{
-			//Debug.Log ("lives :" + currentLifePoints + " , hp : " + currentHealthPoints);
-
+			isDamageable = false;
 			currentHealthPoints -= damage;
-
 			//take the max of 0 and currentHealth
 			currentHealthPoints = Mathf.Max (0, currentHealthPoints);
+			updateGUI ();
 
 			if (!isDead)
 			{
@@ -79,8 +70,7 @@ public class HealthController : MonoBehaviour {
 				{
 					playHurtAnimation();
 				}
-
-				isDamageable = false;
+					
 				Invoke ("ResetIsDamageAble", 1);
 			}
 		}
@@ -113,7 +103,7 @@ public class HealthController : MonoBehaviour {
 	void DeactiveDot()
 	{
 		isDotActive = false;
-		dotDamage 			= 0f;
+		dotDamage 	= 0f;
 	}
 
 	//plays dieing animation and deactivates the player's controll
@@ -122,12 +112,11 @@ public class HealthController : MonoBehaviour {
 	void Dying() {
 
 		animator.SetBool ("is_dead", true);
-
 		playerController.enabled = false;
-
 		currentLifePoints--;
 
 		if (currentLifePoints <= 0) {
+			messageText.text = "Game Over";
 			Invoke ("StartGame", 3); //start game with a three second delay
 		} else {
 			Invoke ("RestartLevel", 1);
@@ -160,12 +149,18 @@ public class HealthController : MonoBehaviour {
 		animator.SetTrigger ("is_hurt");
 	}
 
-	//will be called on a scene change
-	void OnDestroy() {
-		PlayerPrefs.SetInt ("currentLifePoints", currentLifePoints);
-		PlayerPrefs.SetFloat ("currentHealthPoints", currentHealthPoints);
+
+	void updateGUI()
+	{
+		//Set lifepoints
+		lifePointsText.text = currentLifePoints.ToString ();
+
+		//Set healthpoints
+		healthGui.fillAmount = currentHealthPoints / maxHealthPoints;
 	}
 
+
+	/* update function */
 	void Update ()
 	{
 		if (isDotActive) 
@@ -179,5 +174,12 @@ public class HealthController : MonoBehaviour {
 				dotTimerDelta = 0f;
 			}
 		}
+	}
+
+
+	/* will be called on a scene change */
+	void OnDestroy() {
+		PlayerPrefs.SetInt ("currentLifePoints", currentLifePoints);
+		PlayerPrefs.SetFloat ("currentHealthPoints", currentHealthPoints);
 	}
 }

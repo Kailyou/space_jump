@@ -106,6 +106,13 @@ public class HealthController : MonoBehaviour {
 		dotDamage 	= 0f;
 	}
 
+	public void AddHealth(float extraHealth)
+	{
+		currentHealthPoints += extraHealth;
+		currentHealthPoints = Mathf.Min (currentHealthPoints, maxHealthPoints);
+		updateGUI ();
+	}
+
 	//plays dieing animation and deactivates the player's controll
 	//restarts the level if the player is not game over
 	//restarts the whole game if the player is game over

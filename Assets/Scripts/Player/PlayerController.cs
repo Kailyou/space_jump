@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour {
 	//timer for idle animation
 	private float timer = 3f;
 
+	private bool do_lock = false;
+
 	// Use this for initialization
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D>();
@@ -48,16 +50,18 @@ public class PlayerController : MonoBehaviour {
 	/* Update is called once per frame */
 	void Update () {
 			
-		/* input */
+		if (!do_lock) {
+			/* input */
 
-		//jump
-		if (Input.GetButtonDown ("Jump") && grounded) {
-			jumping = true;
-		}
+			//jump
+			if (Input.GetButtonDown ("Jump") && grounded) {
+				jumping = true;
+			}
 
-		//laser attack
-		if (Input.GetButtonDown ("Fire1") && !attacking) {
-			attacking = true;
+			//laser attack
+			if (Input.GetButtonDown ("Fire1") && !attacking) {
+				attacking = true;
+			}
 		}
 
 		//idle 
@@ -77,23 +81,25 @@ public class PlayerController : MonoBehaviour {
 
 	/* FixedUpdate is called depending on a fixed amount of time */
 	void FixedUpdate()	{
-		
-		// walking left or right
-		float hor = Input.GetAxis("Horizontal");
 
-		animator.SetFloat ("speed", Mathf.Abs(hor));
+		if (!do_lock) {
+			// walking left or right
+			float hor = Input.GetAxis ("Horizontal");
 
-		rb2d.velocity = new Vector2 (hor * maxSpeed, rb2d.velocity.y);
+			animator.SetFloat ("speed", Mathf.Abs (hor));
+
+			rb2d.velocity = new Vector2 (hor * maxSpeed, rb2d.velocity.y);
+
+			//change direction of the player by inverting the scale position
+			if ((hor > 0 && !lookingRight) || (hor < 0 && lookingRight)) 
+				Flip ();
+		}
 
 		//checks if the player is grounded by checking if the ground check position of the player
 		//colides with any other circle
 		//the both hit box circles of the player are excluded.
 		grounded = Physics2D.OverlapCircle (groundCheck.position, 0.15F, whatIsGround);
 		animator.SetBool ("grounded", grounded);
-
-		//change direction of the player by inverting the scale position
-		if ((hor > 0 && !lookingRight) || (hor < 0 && lookingRight)) 
-			Flip ();
 
 		//jump
 		if(jumping)	{
@@ -120,5 +126,10 @@ public class PlayerController : MonoBehaviour {
 		Vector3 myScale = transform.localScale;
 		myScale.x *= -1;
 		transform.localScale = myScale;
+	}
+
+	public void Lock() {
+		do_lock = true;
+		Destroy (gameObject);
 	}
 }

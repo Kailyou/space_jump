@@ -35,7 +35,7 @@ public class HealthController : MonoBehaviour {
 		playerController    = GetComponent<PlayerController>();
 
 		//start with max values at first scene
-		if (SceneManager.GetActiveScene().buildIndex == 0) {
+		if (SceneManager.GetActiveScene().buildIndex == 2) {
 			currentLifePoints = maxLifePoints;
 			currentHealthPoints = maxHealthPoints;
 		} 

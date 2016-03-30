@@ -259,7 +259,7 @@ Prefab:
 --- !u!4 &595051359 stripped
 Transform:
   m_PrefabParentObject: {fileID: 457622, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
-  m_PrefabInternal: {fileID: 1521073626}
+  m_PrefabInternal: {fileID: 1456080154}
 --- !u!114 &607154534 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11482104, guid: 77035861d54034918b7a6ffa9b684c94,
@@ -974,7 +974,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!1001 &1521073626
+--- !u!1001 &1456080154
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1011,7 +1011,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 457622, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11456296, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: healthGui

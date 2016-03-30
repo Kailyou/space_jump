@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CollisionDamageSeeker : MonoBehaviour
+public class CollisionDamage : MonoBehaviour
 {
+	public string dotName = "";
 
 	void OnCollisionEnter2D (Collision2D other)
 	{
 		if (other.collider.CompareTag ("Player")) {
-			other.collider.SendMessage ("ActivateDot", "seeker", SendMessageOptions.DontRequireReceiver);
+			other.collider.SendMessage ("ActivateDot", dotName, SendMessageOptions.DontRequireReceiver);
 		}
 	}
 

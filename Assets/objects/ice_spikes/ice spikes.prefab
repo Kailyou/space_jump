@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21224910}
   - 114: {fileID: 11492960}
   - 61: {fileID: 6124474}
+  - 114: {fileID: 11493282}
   m_Layer: 0
   m_Name: ice spikes
   m_TagString: Untagged
@@ -52,9 +53,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 175754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3283ef3b99e9c8469939a06634cc96e, type: 3}
+  m_Script: {fileID: 11500000, guid: 162d014e7d4c44696bb36c71d24ab437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dotName: iceSpikes
+--- !u!114 &11493282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7241c990a3ddc4822b51e42fd30728ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
 --- !u!212 &21224910
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -91,7 +105,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: dotName
+      value: iceSpikes
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175754}

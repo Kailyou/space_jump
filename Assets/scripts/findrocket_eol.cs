@@ -19,6 +19,6 @@ public class findrocket_eol : MonoBehaviour
 
 	void nextLevel ()
 	{
-		SceneManager.LoadScene ("Scenes/Main");
+		SceneManager.LoadScene ("Scenes/Game-space");
 	}
 }

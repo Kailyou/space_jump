@@ -34,13 +34,13 @@ public class HealthController : MonoBehaviour
 		animator = GetComponent<Animator> ();
 		playerController = GetComponent<PlayerController> ();
 
+		currentHealthPoints	= PlayerPrefs.GetFloat ("currentHealthPoints");
+		currentLifePoints = PlayerPrefs.GetInt ("currentLifePoints");
+
 		// start with max values at first scene
-		if (SceneManager.GetActiveScene ().buildIndex == 1) {
+		if (SceneManager.GetActiveScene ().buildIndex == 1 || currentLifePoints<=0) {
 			currentLifePoints = maxLifePoints;
 			currentHealthPoints = maxHealthPoints;
-		} else {
-			currentHealthPoints	= PlayerPrefs.GetFloat ("currentHealthPoints");
-			currentLifePoints = PlayerPrefs.GetInt ("currentLifePoints");
 		}
 
 		messageText.text = "";
@@ -112,6 +112,7 @@ public class HealthController : MonoBehaviour
 	{
 		currentHealthPoints = 0;
 		isDead = true;
+		updateGUI ();
 		Dying ();
 	}
 
@@ -152,6 +153,8 @@ public class HealthController : MonoBehaviour
 
 		// TODO
 		// generate new level and reset player
+
+		updateGUI ();
 	}
 
 	void playHurtAnimation ()

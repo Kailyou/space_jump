@@ -151,8 +151,8 @@ public class HealthController : MonoBehaviour
 			playerController.Flip ();
 		}
 
-		// TODO
 		// generate new level and reset player
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 
 		updateGUI ();
 	}

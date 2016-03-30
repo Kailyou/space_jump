@@ -2,16 +2,13 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Main : MonoBehaviour
-{
+public class Main : MonoBehaviour {
 
-	public void onStart ()
-	{
+	public void onStart() {
 		SceneManager.LoadScene ("Scenes/Game-findrocket");
 	}
 
-	public void onExit ()
-	{
+	public void onExit() {
 		Application.Quit ();
 	}
 }

@@ -6,8 +6,6 @@ public class DeadZone : MonoBehaviour
 
 	void OnCollisionEnter2D (Collision2D other)
 	{
-		if (other.collider.CompareTag ("Player")) {
-			other.collider.SendMessage ("DieNow");
-		}
+		other.collider.SendMessage ("DieNow", SendMessageOptions.DontRequireReceiver);
 	}
 }

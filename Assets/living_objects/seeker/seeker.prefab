@@ -14,6 +14,7 @@ GameObject:
   - 95: {fileID: 9569986}
   - 114: {fileID: 11410958}
   - 114: {fileID: 11451672}
+  - 114: {fileID: 11464870}
   m_Layer: 0
   m_Name: seeker
   m_TagString: Untagged
@@ -105,6 +106,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+--- !u!114 &11464870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118645fe942654e08a3ce3de0b6a82b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walking_speed: 1
+  respect_bounds: 1
 --- !u!212 &21241242
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -149,6 +163,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: dotName
       value: seeker
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: walking_speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

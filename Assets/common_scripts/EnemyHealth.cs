@@ -18,9 +18,15 @@ public class EnemyHealth : MonoBehaviour
 		health -= damage;
 
 		if (health <= 0) {
-			animator.SetTrigger ("hurt");
-			Invoke ("die", 1);
+			DieNow ();
 		}
+	}
+
+	public void DieNow ()
+	{
+		health = 0;
+		animator.SetTrigger ("hurt");
+		Invoke ("die", 1);
 	}
 
 	IEnumerator SelfDestroy(){

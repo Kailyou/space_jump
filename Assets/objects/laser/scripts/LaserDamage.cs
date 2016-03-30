@@ -22,7 +22,7 @@ public class LaserDamage : MonoBehaviour {
 	// execute the ApplyDamage function, there will be no error if this function is not implemented.
 	// laser will be destroyed itself after collision.
 	void OnTriggerEnter2D(Collider2D other) {
-		if (!other.CompareTag ("Player")) {
+		if (!other.CompareTag ("Player") && !other.CompareTag ("ground_bounds")) {
 			other.SendMessage ("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
 			Destroy (gameObject);
 		}

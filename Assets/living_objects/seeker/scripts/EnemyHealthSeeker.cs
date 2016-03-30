@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyHealthSeeker : MonoBehaviour {
+public class EnemyHealthSeeker : MonoBehaviour
+{
 
-	private Animator    animator;
+	private Animator animator;
 
-	void Start () {
-		animator = GetComponent<Animator>();
+	void Start ()
+	{
+		animator = GetComponent<Animator> ();
 	}
 
-	void ApplyDamage(float damage) {
+	void ApplyDamage (float damage)
+	{
 		animator.SetTrigger ("hurt");
-		Invoke("die", 1);
+		Invoke ("die", 1);
 	}
 
-	private void die() {
+	private void die ()
+	{
 		Destroy (gameObject);
 	}
 }

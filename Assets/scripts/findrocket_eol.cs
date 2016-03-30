@@ -2,20 +2,23 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class findrocket_eol : MonoBehaviour {
+public class findrocket_eol : MonoBehaviour
+{
 
 	public GameObject rocket;
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerEnter2D (Collider2D other)
+	{
 		if (other.CompareTag ("Player")) {
 			other.SendMessage ("Lock", SendMessageOptions.DontRequireReceiver);
 
 			rocket.GetComponent<Animator> ().SetTrigger ("start");
-			Invoke("nextLevel", 4);
+			Invoke ("nextLevel", 4);
 		}
 	}
 
-	void nextLevel() {
+	void nextLevel ()
+	{
 		SceneManager.LoadScene ("Scenes/Main");
 	}
 }

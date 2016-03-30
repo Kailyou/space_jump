@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 	void Update ()
 	{		
 		if (!do_lock) {
-			//j ump
+			// jump
 			if (Input.GetButtonDown ("Jump") && grounded) {
 				jumping = true;
 			}
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
 		}
 
 		// idle 
-		if (rb2d.velocity.x <= 0.1f) {
+		if (Mathf.Abs(rb2d.velocity.x) <= 0.1f) {
 			idling = true;
 		} else {
 			idling = false;
@@ -71,11 +71,9 @@ public class PlayerController : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-
 		if (!do_lock) {
 			// walking left or right
 			float hor = Input.GetAxis ("Horizontal");
-			animator.SetFloat ("speed", Mathf.Abs (hor));
 			rb2d.velocity = new Vector2 (hor * maxSpeed, rb2d.velocity.y);
 
 			// change direction of the player by inverting the scale position
@@ -87,7 +85,6 @@ public class PlayerController : MonoBehaviour
 		// colides with any other circle
 		// the both hit box circles of the player are excluded.
 		grounded = Physics2D.OverlapCircle (groundCheck.position, 0.15F, whatIsGround);
-		animator.SetBool ("grounded", grounded);
 
 		// jump
 		if (jumping) {
@@ -107,6 +104,9 @@ public class PlayerController : MonoBehaviour
 
 			attacking = false;
 		}
+
+		animator.SetBool ("grounded", grounded);
+		animator.SetFloat ("speed", Mathf.Abs (rb2d.velocity.x));
 	}
 
 	public void Flip ()

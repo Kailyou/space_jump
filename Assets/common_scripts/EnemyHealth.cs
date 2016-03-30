@@ -5,12 +5,16 @@ public class EnemyHealth : MonoBehaviour
 {
 
 	private Animator animator;
+	private Rigidbody2D rb2d;
+	private BoxCollider2D boxCollider2D;
 
 	public float health = 1;
 
 	void Start ()
 	{
 		animator = GetComponent<Animator> ();
+		rb2d = GetComponent<Rigidbody2D> ();
+		boxCollider2D = GetComponent<BoxCollider2D> ();
 	}
 
 	void ApplyDamage (float damage)
@@ -25,6 +29,9 @@ public class EnemyHealth : MonoBehaviour
 	public void DieNow ()
 	{
 		health = 0;
+		rb2d.isKinematic = true;
+		boxCollider2D.isTrigger = true;
+
 		animator.SetTrigger ("hurt");
 		Invoke ("die", 1);
 	}

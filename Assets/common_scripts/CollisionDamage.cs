@@ -6,6 +6,7 @@ public class CollisionDamage : MonoBehaviour
 	public string dotName = "";
 
 	private EnemyHealth enemyHealth;
+	private Collider2D currentCollider = null;
 
 	void Start() {
 		enemyHealth = GetComponent<EnemyHealth> ();
@@ -18,6 +19,7 @@ public class CollisionDamage : MonoBehaviour
 
 		if (other.collider.CompareTag ("Player")) {
 			other.collider.SendMessage ("ActivateDot", dotName, SendMessageOptions.DontRequireReceiver);
+			currentCollider = other.collider;
 		}
 	}
 
@@ -25,6 +27,15 @@ public class CollisionDamage : MonoBehaviour
 	{
 		if (other.collider.CompareTag ("Player")) {
 			other.collider.SendMessage ("DeactiveDot", SendMessageOptions.DontRequireReceiver);
+		}
+
+		currentCollider = null;
+	}
+
+	void OnDestroy ()
+	{
+		if (currentCollider) {
+			currentCollider.SendMessage ("DeactiveDot", SendMessageOptions.DontRequireReceiver);
 		}
 	}
 }

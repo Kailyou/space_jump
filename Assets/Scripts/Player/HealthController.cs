@@ -91,6 +91,12 @@ public class HealthController : MonoBehaviour {
 			dotTimerTillDamage	= 1f;	
 		} 
 
+		if (type.Equals ("seeker"))
+		{
+			dotDamage = 1f;
+			dotTimerTillDamage	= 1f;	
+		} 
+
 		//secure that at least 1 damage will be taken each second
 		if (dotTimerTillDamage <= 0)
 		{
@@ -111,6 +117,12 @@ public class HealthController : MonoBehaviour {
 		currentHealthPoints += extraHealth;
 		currentHealthPoints = Mathf.Min (currentHealthPoints, maxHealthPoints);
 		updateGUI ();
+	}
+
+	public void DieNow() {
+		currentHealthPoints = 0;
+		isDead = true;
+		Dying();
 	}
 
 	//plays dieing animation and deactivates the player's controll

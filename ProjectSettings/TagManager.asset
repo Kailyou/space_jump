@@ -10,6 +10,7 @@ TagManager:
   - Wolf
   - Wolf_FoV
   - Laser
+  - Seeker
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,9 @@ public class BoundsTrigger : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		other.SendMessage ("onBoundsTrigger", SendMessageOptions.DontRequireReceiver);
+		if (other.tag == "Wolf" || other.tag == "Seeker")
+		{
+			other.SendMessage ("OnBoundsTrigger", SendMessageOptions.DontRequireReceiver);
+		}
 	}
 }

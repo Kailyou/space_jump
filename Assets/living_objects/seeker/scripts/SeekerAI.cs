@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SeekerAI : MonoBehaviour {
-	// config
+public class SeekerAI : MonoBehaviour 
+{
+	// Config
 	public float walking_speed = 0;
 	public bool respect_bounds = true;
 
-	// references
+	// References
 	private Rigidbody2D rb2d;
 	private Animator animator;
 	private Vector3 scaleBackup;
@@ -15,7 +16,8 @@ public class SeekerAI : MonoBehaviour {
 	private bool started = false;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		rb2d = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
 		enemyHealth = GetComponent<EnemyHealth> ();
@@ -24,7 +26,8 @@ public class SeekerAI : MonoBehaviour {
 		animator.SetBool ("walking", false);
 	}
 
-	void OnBecameVisible() {
+	void OnBecameVisible()
+	{
 		started = true;
 	}
 
@@ -34,16 +37,22 @@ public class SeekerAI : MonoBehaviour {
 			return;
 
 		rb2d.velocity = new Vector2 (walking_speed, rb2d.velocity.y);
-		if (enemyHealth.health == 0) {
+
+		if (enemyHealth.health == 0)
+		{
 			rb2d.velocity = new Vector2 (0f, rb2d.velocity.y);
 		}
 
 		Vector3 scale = transform.localScale;
 
-		if (rb2d.velocity.x >= 0.1f)
+		if (rb2d.velocity.x >= 0.1f) 
+		{
 			scale.x = -scaleBackup.x;
-		else if (rb2d.velocity.x <= 0.1f)
+		} 
+		else if (rb2d.velocity.x <= 0.1f) 
+		{
 			scale.x = scaleBackup.x;
+		}
 
 		transform.localScale = scale;
 
@@ -52,13 +61,16 @@ public class SeekerAI : MonoBehaviour {
 
 	void onBoundsTrigger ()
 	{
-		if (respect_bounds) {
+		if (respect_bounds) 
+		{
 			walking_speed = -walking_speed;
 		}
 	}
 
-	void OnCollisionEnter2D (Collision2D other) {
-		if (respect_bounds && !other.collider.CompareTag ("Player")) {
+	void OnCollisionEnter2D (Collision2D other) 
+	{
+		if (respect_bounds && !other.collider.CompareTag ("Player"))
+		{
 			walking_speed = -walking_speed;
 		}
 	}

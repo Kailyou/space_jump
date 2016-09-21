@@ -11,6 +11,8 @@ TagManager:
   - Wolf_FoV
   - Laser
   - Seeker
+  - IceSpike
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -267,8 +267,6 @@ public class wolf_ai : MonoBehaviour
 					} 
 				}
 
-
-
 				break;
 			}
 

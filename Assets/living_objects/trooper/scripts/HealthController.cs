@@ -21,7 +21,7 @@ public class HealthController : MonoBehaviour
 
 	// Dot damage
 	private bool isDotActive 			= false;
-	private int dotDamage 				= 0f;
+	private int dotDamage 				= 0;
 	private float dotTimerDelta 		= 0f;
 	private float dotTimerTillDamage	= 0f;
 
@@ -104,20 +104,20 @@ public class HealthController : MonoBehaviour
 
 		if (type.Equals ("iceSpikes"))
 		{
-			dotDamage = 1f;
+			dotDamage = 1;
 			dotTimerTillDamage	= 1f;	
 		} 
 
 		if (type.Equals ("seeker"))
 		{
-			dotDamage = 1f;
+			dotDamage = 1;
 			dotTimerTillDamage	= 1f;	
 		} 
 
 		// Make sure that at least 1 damage will be taken each second
 		if (dotTimerTillDamage <= 0) 
 		{
-			dotDamage = 1f;
+			dotDamage = 1;
 			dotTimerTillDamage = 1f;
 		}
 	}
@@ -126,7 +126,7 @@ public class HealthController : MonoBehaviour
 	void DeactiveDot ()
 	{
 		isDotActive = false;
-		dotDamage = 0f;
+		dotDamage = 0;
 	}
 
 	public void AddHealth (float extraHealth)

@@ -64,8 +64,10 @@ public class SeekerAI : MonoBehaviour
 
 	// Is used for the collision between Seeker and the bounds.
 	// The Seeker will turn around after a collision with a bound.
-	void onBoundsTrigger ()
+	void OnBoundsTrigger ()
 	{
+		Debug.Log ("test");
+
 		if (respect_bounds) 
 		{
 			walking_speed = -walking_speed;

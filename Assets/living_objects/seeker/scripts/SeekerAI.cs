@@ -74,4 +74,9 @@ public class SeekerAI : MonoBehaviour
 			walking_speed = -walking_speed;
 		}
 	}
+
+	private void ApplyDamage(float damage)
+	{
+		enemyHealth.UpdateHP (-damage);
+	}
 }

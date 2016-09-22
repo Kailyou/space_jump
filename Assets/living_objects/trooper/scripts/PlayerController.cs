@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 	private Animator animator;
 
 	// Config
-	public float maxSpeed = 10;
+	public float maxSpeed  = 10;
 	public float jumpForce = 550;
 	public GameObject laserPrefab;
 	public Transform laserSpawnPoint;
@@ -21,12 +21,18 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector]
 	public bool idling = false;
 	[HideInInspector]
-	public bool crouching = false;
-	private bool grounded = false;
-	private bool jumping = false;
-	private bool attacking = false;
+	private bool crouching = false;
+	private bool grounded  = false;
+	private bool jumping   = false;
 	private float timer = 3f;
 	private bool do_lock = false;
+
+	// Attack
+	private float attackCooldownTime        = 1.5f;
+	private float currentAttackCooldownTime = 0f;
+	private bool attackOnCD = false;
+	private bool attacking = false;
+
 
 	// Collision detection
 	public LayerMask whatIsGround;
@@ -42,15 +48,29 @@ public class PlayerController : MonoBehaviour
 
 	void Update ()
 	{		
+		// Update attack cooldown time
+		if (attackOnCD)
+		{
+			currentAttackCooldownTime += Time.deltaTime;
+
+			if (currentAttackCooldownTime > attackCooldownTime)
+			{
+				attackOnCD = false;
+				currentAttackCooldownTime = 0f;
+			}
+		}
+
 		if (!do_lock) 
 		{
 			// Jump
-			if (Input.GetButtonDown ("Jump") && grounded) {
+			if (Input.GetButtonDown ("Jump") && grounded) 
+			{
 				jumping = true;
 			}
 
 			// Laser attack
-			if (Input.GetButtonDown ("Fire1") && !attacking) {
+			if (Input.GetButtonDown ("Fire1") && !attacking && !attackOnCD)
+			{
 				attacking = true;
 			}
 		}
@@ -91,21 +111,27 @@ public class PlayerController : MonoBehaviour
 		grounded = Physics2D.OverlapCircle (groundCheck.position, 0.15F, whatIsGround);
 
 		// Jump
-		if (jumping) {
+		if (jumping) 
+		{
 			rb2d.AddForce (new Vector2 (0, jumpForce));
 			jumping = false;
 		}
 
 		// Attack
-		if (attacking) {
+		if (attacking)
+		{
+			attackOnCD = true;
 			animator.SetTrigger ("attacking");
 			GameObject laser = (GameObject)Instantiate (laserPrefab, laserSpawnPoint.position, Quaternion.identity);
 			laser.tag = "Laser";
 
-			if (lookingRight)
+			if (lookingRight) 
+			{
 				laser.GetComponent<Rigidbody2D> ().AddForce (Vector3.right * laserSpeed);
-			else
+			} else 
+			{
 				laser.GetComponent<Rigidbody2D> ().AddForce (Vector3.left * laserSpeed);
+			}
 
 			attacking = false;
 		}

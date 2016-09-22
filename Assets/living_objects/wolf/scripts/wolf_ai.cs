@@ -60,9 +60,9 @@ public class wolf_ai : MonoBehaviour
 	/* HURT */
 	private bool invincible 			= false;
 	private bool hurting                = false;
-	private float hurtTime              = 1f;
+	private float hurtTime              = 0.25f;
 	private float currentHurtTime 		= 0f;
-	private float invincibleTime 		= 1.5f;
+	private float invincibleTime 		= 3f;
 	private float currentInvincibleTime	= 0f;
 
 
@@ -96,9 +96,6 @@ public class wolf_ai : MonoBehaviour
 	/* UPATE */
 	void Update()
 	{
-		/* DEBUG */
-		//Debug.Log (state);
-
 		// Set speed to 0 if wolf is death
 		if (health.isDeath()) 
 		{

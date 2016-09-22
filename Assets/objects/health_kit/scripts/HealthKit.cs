@@ -3,7 +3,6 @@ using System.Collections;
 
 public class HealthKit : MonoBehaviour
 {
-
 	public float healAmount = 1;
 
 	void OnCollisionEnter2D (Collision2D other)

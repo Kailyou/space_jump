@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
 		// Checks if the player is grounded by checking if the ground check position of the player
 		// colides with any other circle
 		// the both hit box circles of the player are excluded.
-		grounded = Physics2D.OverlapCircle (groundCheck.position, 0.15F, whatIsGround);
+		grounded = Physics2D.OverlapCircle (groundCheck.position, 0.5F, whatIsGround);
 
 		// Jump
 		if (jumping) 

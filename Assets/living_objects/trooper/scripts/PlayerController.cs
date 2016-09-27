@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 	// References
 	private Rigidbody2D rb2d;
 	private Animator animator;
+	private AudioSource audioSource;
 
 	// Config
 	public float maxSpeed  = 10;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
+		audioSource = GetComponent<AudioSource> ();
 
 		animator.SetBool ("crouching", false);
 	}
@@ -122,6 +124,7 @@ public class PlayerController : MonoBehaviour
 		{
 			attackOnCD = true;
 			animator.SetTrigger ("attacking");
+			audioSource.Play ();
 			GameObject laser = (GameObject)Instantiate (laserPrefab, laserSpawnPoint.position, Quaternion.identity);
 			laser.tag = "Laser";
 

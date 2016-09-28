@@ -33,13 +33,13 @@ public class PlayerController : MonoBehaviour
 
 	/* Attack */
 	// Melee Attack
-	private float attackCooldownTime_melee        	= 0.5f;
+	private float attackCooldownTime_melee        	= 0.25f;
 	private float currentAttackCooldownTime_melee	= 0f;
 	private bool attackOnCD_melee 				  	= false;
 	private bool attacking_melee 					= false;
 
 	// Range Attack
-	private float attackCooldownTime_range        	= 5f;
+	private float attackCooldownTime_range        	= 1f;
 	private float currentAttackCooldownTime_range	= 0f;
 	private bool attackOnCD_range 					= false;
 	private bool attacking_range 					= false;
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 		} else 
 		{
 			idling = false;
-			timer = 3f;
+			timer = 10f;
 		}
 
 		updateTimer ();

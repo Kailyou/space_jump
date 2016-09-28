@@ -13,6 +13,7 @@ TagManager:
   - Seeker
   - IceSpike
   - Ground
+  - Bounds (Events)
   layers:
   - Default
   - TransparentFX

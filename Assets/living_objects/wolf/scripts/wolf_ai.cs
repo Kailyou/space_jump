@@ -54,8 +54,8 @@ public class wolf_ai : MonoBehaviour
 	private bool  respectBounds    	= true;
 	private bool  reachedBound    	= false;
 	private float currentWaitTime   = 0f;
-	private bool  playerCollision	= false;
-	private bool  damageReceived    = false;
+	//private bool  playerCollision	= false;
+	//private bool  damageReceived    = false;
 
 	/* HURT */
 	private bool invincible 			= false;
@@ -73,6 +73,8 @@ public class wolf_ai : MonoBehaviour
 		animator	= GetComponent<Animator> ();
 		health      = GetComponent<EnemyHealth> ();
 		player  	= GameObject.FindGameObjectWithTag ("Player");
+
+		rb2d.isKinematic = true;
 
 		// check start direction of the wolf
 		Vector3 scale = transform.localScale;
@@ -272,9 +274,6 @@ public class wolf_ai : MonoBehaviour
 
 			case State.Attack:
 			{
-				Debug.Log ("test");
-
-
 				// update animation
 				animator.SetBool ("walking", false);
 				animator.SetBool ("chasing", false);
@@ -434,24 +433,7 @@ public class wolf_ai : MonoBehaviour
 		}
 	}
 
-	// when collision between player and wolf started
-	void OnCollisionEnter2D (Collision2D other)
-	{
-		// set speed to 0 if there is a collision with the player
-		if (other.collider.CompareTag ("Player"))
-		{
-			playerCollision = true;
-		}
-	}
 
-	// when collision between player and wolf stopped
-	void OnCollisionExit2D(Collision2D other)
-	{
-		if (other.collider.CompareTag ("Player"))
-		{
-			playerCollision = false;
-		}
-	}
 
 
 	/* OTHERS */

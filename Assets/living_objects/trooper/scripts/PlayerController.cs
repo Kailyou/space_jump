@@ -19,11 +19,7 @@ public class PlayerController : MonoBehaviour
 	// Status
 	[HideInInspector]
 	public bool lookingRight = true;
-	[HideInInspector]
-	public bool idling = false;
-	[HideInInspector]
 	private bool grounded  = false;
-	private float timer = 3f;
 	private bool do_lock = false;
 
 	// Jump
@@ -34,13 +30,13 @@ public class PlayerController : MonoBehaviour
 
 	/* Attack */
 	// Melee Attack
-	private float attackCooldownTime_melee        	= 0.5f;
+	private float attackCooldownTime_melee        	= 0.25f;
 	private float currentAttackCooldownTime_melee	= 0f;
 	private bool attackOnCD_melee 				  	= false;
 	private bool attacking_melee 					= false;
 
 	// Range Attack
-	private float attackCooldownTime_range        	= 5f;
+	private float attackCooldownTime_range        	= 1f;
 	private float currentAttackCooldownTime_range	= 0f;
 	private bool attackOnCD_range 					= false;
 	private bool attacking_range 					= false;
@@ -48,6 +44,12 @@ public class PlayerController : MonoBehaviour
 	// Collision detection
 	public LayerMask whatIsGround;
 	public Transform groundCheck;
+
+	// Idling
+	private float timer = 5f;
+	private bool idling = false;
+
+
 
 	void Start ()
 	{
@@ -79,7 +81,7 @@ public class PlayerController : MonoBehaviour
 		} else 
 		{
 			idling = false;
-			timer = 3f;
+			timer = 5;
 		}
 
 		updateTimer ();
@@ -94,18 +96,24 @@ public class PlayerController : MonoBehaviour
 			if (Input.GetButtonDown ("Jump") && grounded && !prepareJump && !jumping) 
 			{
 				prepareJump = true;
+				idling = false;
+				timer = 5f;
 			}
 
 			// Melee Attack
 			if (Input.GetButtonDown ("Fire1") && !attacking_melee && !attackOnCD_melee && !attacking_range)
 			{
 				attacking_melee = true;
+				idling = false;
+				timer = 5f;
 			}
 
 			// Range Attack
 			if (Input.GetButtonDown ("Fire2") && !attacking_range && !attackOnCD_range && !attacking_melee)
 			{
 				attacking_range = true;
+				idling = false;
+				timer = 5f;
 			}
 		}
 	}

@@ -46,6 +46,7 @@ GameObject:
   - 50: {fileID: 5028630}
   - 114: {fileID: 11421778}
   - 114: {fileID: 11456296}
+  - 82: {fileID: 8246742}
   m_Layer: 8
   m_Name: PlayerTrooper
   m_TagString: Player
@@ -62,6 +63,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.63, y: 1.84, z: 0}
   m_LocalScale: {x: 0.34198546, y: 0.34198546, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 484140}
   - {fileID: 493104}
@@ -76,6 +78,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.67, y: -2.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 457622}
   m_RootOrder: 0
@@ -88,6 +91,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 457622}
   m_RootOrder: 1
@@ -150,6 +154,80 @@ CircleCollider2D:
   m_Offset: {x: -0.41, y: 1.03}
   serializedVersion: 2
   m_Radius: 1.3719692
+--- !u!82 &8246742
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174132}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 73fc7460cb6e64f0c814a62f7276fc2c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &9519992
 Animator:
   serializedVersion: 3
@@ -185,7 +263,6 @@ MonoBehaviour:
   laserSpeed: 500
   lookingRight: 1
   idling: 0
-  crouching: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294967039
@@ -201,8 +278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c3e91bd4494e240a893fac9c2f851f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 17
   maxLifePoints: 5
+  maxHealthPoints: 17
   healthGui: {fileID: 0}
   lifePointsText: {fileID: 0}
   messageText: {fileID: 0}

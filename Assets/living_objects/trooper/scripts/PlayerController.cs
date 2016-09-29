@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 	// References
 	private Rigidbody2D rb2d;
 	private Animator animator;
+	private AudioSource audioSource;
 
 	// Config
 	public float maxSpeed  = 10;
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
 	{
 		rb2d = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void Update ()
@@ -137,6 +139,8 @@ public class PlayerController : MonoBehaviour
 			attackOnCD_range = true;
 
 			animator.SetTrigger ("attacking_range");
+
+			audioSource.Play ();
 
 			// Create laser object and adds a force to the looking side of the player
 			GameObject laser = (GameObject)Instantiate (laserPrefab, laserSpawnPoint.position, Quaternion.identity);
@@ -235,7 +239,7 @@ public class PlayerController : MonoBehaviour
 		// Checks if the player is grounded by checking if the ground check position of the player
 		// colides with any other circle
 		// the both hit box circles of the player are excluded.
-		grounded = Physics2D.OverlapCircle (groundCheck.position, 0.15F, whatIsGround);
+		grounded = Physics2D.OverlapCircle (groundCheck.position, 0.5F, whatIsGround);
 		animator.SetBool ("grounded", grounded);
 
 		// Jump

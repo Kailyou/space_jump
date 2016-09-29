@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
 	/* REFERENCES */
 	private Animator animator;
 	private Rigidbody2D rb2d;
-	private BoxCollider2D boxCollider2D;
+	private Collider2D collider2d;
 
 	private bool death = false;
 
@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
 	{
 		animator = GetComponent<Animator> ();
 		rb2d = GetComponent<Rigidbody2D> ();
-		boxCollider2D = GetComponent<BoxCollider2D> ();
+		collider2d = GetComponent<Collider2D> ();
 	}
 
 
@@ -44,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
 		death = true;
 
 		rb2d.isKinematic = true;
-		boxCollider2D.isTrigger = true;
+		collider2d.isTrigger = true;
 
 		animator.SetTrigger("death");
 

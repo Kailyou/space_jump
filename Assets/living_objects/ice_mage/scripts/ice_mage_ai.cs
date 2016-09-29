@@ -14,8 +14,14 @@ public class ice_mage_ai : MonoBehaviour
 	private GameObject  player;
 	private EnemyHealth health;
 
+	/* RAYCAST */
+	public Transform start_attack_range;
+	public Transform end_attack_range;
+	public bool playerAttackRange_rangeAttack;
+	public bool playerDetected;
+
 	// Use this for initialization
-	void Start () 
+	private void Start () 
 	{
 		rb2d 		= GetComponent<Rigidbody2D> ();
 		animator	= GetComponent<Animator> ();
@@ -26,13 +32,40 @@ public class ice_mage_ai : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	private void Update ()
 	{
-	
+		RaycastingPlayerDetected ();
+
+		animator.SetBool ("PlayerDetected", playerDetected);
 	}
 
-	void FixedUpdate()
+	private void FixedUpdate()
 	{
+		// Set speed to 0 if wolf is death
+		if (health.isDeath()) 
+		{
+			rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
+			return;
+		}
 
 	}
+
+	/* RAYCAST */
+
+	private void RaycastingPlayerDetected()
+	{
+		Debug.DrawLine (start_attack_range.position, end_attack_range.position, Color.green);
+		playerAttackRange_rangeAttack = Physics2D.Linecast (start_attack_range.position, end_attack_range.position, 1 << LayerMask.NameToLayer ("Player"));
+	}
+
+	public void PlayerDetected()
+	{
+		playerDetected = true;
+	}
+
+	public void PlayerUndetected()
+	{
+		playerDetected = false;
+	}
+
 }

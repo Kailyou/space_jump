@@ -7,13 +7,15 @@ public class LaserDamage : MonoBehaviour {
 
 	private Vector3 initialPosition;
 
-	void Start() {
+	void Start() 
+	{
 		initialPosition = transform.position;
 	}
 
 	void FixedUpdate ()
 	{
-		if (Vector3.Distance (initialPosition, transform.position) >= 5) {
+		if (Vector3.Distance (initialPosition, transform.position) >= 5)
+		{
 			Destroy (gameObject);
 		}
 	}

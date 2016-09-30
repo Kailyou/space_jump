@@ -27,8 +27,6 @@ public class EnemyHealth : MonoBehaviour
 
 	public void UpdateHP (int damageChange)
 	{
-		Debug.Log (health);
-
 		if (!death) 
 		{
 			health -= damageChange;

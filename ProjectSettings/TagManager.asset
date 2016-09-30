@@ -15,6 +15,7 @@ TagManager:
   - Ground
   - Bounds (Events)
   - EventCollider
+  - iceProjectile
   layers:
   - Default
   - TransparentFX

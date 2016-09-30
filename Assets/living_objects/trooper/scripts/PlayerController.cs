@@ -126,8 +126,6 @@ public class PlayerController : MonoBehaviour
 		{
 			attackOnCD_melee = true;
 
-			Debug.Log ("test");
-
 			animator.SetTrigger ("attacking_melee");
 
 			attacking_melee = false;

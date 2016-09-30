@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LaserDamage : MonoBehaviour {
 
-	public float damage = 1;
+	public int damage = 1;
 
 	private Vector3 initialPosition;
 
@@ -23,7 +23,7 @@ public class LaserDamage : MonoBehaviour {
 	// laser will be destroyed itself after collision.
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (!other.CompareTag ("Player") && !other.CompareTag ("ground_bounds") && !other.CompareTag("Bound"))
+		if (!other.CompareTag ("Player") && !other.CompareTag ("ground_bounds") && !other.CompareTag("EventCollider"))
 		{
 			other.SendMessage ("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
 

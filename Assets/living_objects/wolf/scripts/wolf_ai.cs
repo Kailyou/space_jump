@@ -203,9 +203,10 @@ public class wolf_ai : MonoBehaviour
 	void FixedUpdate ()
 	{
 		// Set speed to 0 if wolf is death, is attacking or received damage
-		if (health.isDeath () || attackOnCD || hurting)
+		if (health.isDeath () || attackOnCD || hurting || reachedBound)
 		{
 			rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
+			animator.SetFloat ("Speed", Mathf.Abs(rb2d.velocity.x));
 			return;
 		} 
 		else 

@@ -25,16 +25,21 @@ public class EnemyHealth : MonoBehaviour
 	}
 
 
-	public void UpdateHP (float damageChange)
+	public void UpdateHP (int damageChange)
 	{
+		Debug.Log (health);
+
 		if (!death) 
 		{
-			health += damageChange;
+			health -= damageChange;
 
 			if (health <= 0) 
 			{
 				DieNow ();
-			}		
+			} else 
+			{
+				animator.SetTrigger ("Hurt");
+			}
 		}
 	}
 
@@ -46,7 +51,7 @@ public class EnemyHealth : MonoBehaviour
 		rb2d.isKinematic = true;
 		collider2d.isTrigger = true;
 
-		animator.SetTrigger("death");
+		animator.SetTrigger("Death");
 
 		Invoke ("die", 1);
 	}

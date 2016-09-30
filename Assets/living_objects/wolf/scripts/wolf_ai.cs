@@ -84,7 +84,7 @@ public class wolf_ai : MonoBehaviour
 		RaycastingPlayerDetected ();
 		RaycastingPlayerInAttackRange ();
 
-		updateAttack ();
+		UpdateAttack ();
 
 		// Speed is set to 0 as long as hurt timer is active
 		UpdateHurtTimer ();
@@ -95,7 +95,7 @@ public class wolf_ai : MonoBehaviour
 			Flip ();
 	}
 
-	private void updateAttack()
+	private void UpdateAttack()
 	{
 		// If attack is on cool down,
 		// update the cool down and leave function after
@@ -202,7 +202,7 @@ public class wolf_ai : MonoBehaviour
 
 	void FixedUpdate ()
 	{
-		// Set speed to 0 if wolf is death, is attacking or received damage
+		// Set speed to 0 if attacking, Flipping, hurting or dieing
 		if (health.isDeath () || attackOnCD || hurting || reachedBound)
 		{
 			rb2d.velocity = new Vector2 (0, rb2d.velocity.y);

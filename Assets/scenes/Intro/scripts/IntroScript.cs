@@ -20,7 +20,6 @@ public class IntroScript : MonoBehaviour {
 	void Start () {
 		text = GetComponent<Text> ();
 		reset ();
-		setText ("There was a Explorer on a small planet...");
 	}
 
 	private void reset() {
@@ -68,7 +67,7 @@ public class IntroScript : MonoBehaviour {
 			break;
 
 		case State.STATE_2:
-			handleState ("But to finish his hyperdrive he needs some special parts first.", 4);
+			handleState ("But he needs some more energy to power is hyperdrive.", 4);
 			break;
 
 		case State.STATE_3:

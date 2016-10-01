@@ -7,7 +7,7 @@ public class BoundsTrigger : MonoBehaviour {
 	{
 		if (other.tag == "Wolf" || other.tag == "Seeker" || other.tag == "Golem")
 		{
-			other.SendMessage ("OnBoundsTrigger", SendMessageOptions.DontRequireReceiver);
+			other.SendMessage ("OnBoundsTrigger", this.gameObject, SendMessageOptions.DontRequireReceiver);
 		}
 	}
 }

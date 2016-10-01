@@ -6,19 +6,30 @@ using System.Collections;
  * and lowers the light level
  */
 
-/* REFERENCES */
-
-
 public class startIceCaveEvent : MonoBehaviour 
 {
+	/* REFERENCES */
+	public ParticleSystem snowEffect;
+	private GameObject player;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		player = GameObject.FindGameObjectWithTag ("Player");
+
+		if (other.CompareTag ("Player"))
+		{
+			// Check if player is moving out or inside the cave
+			// is he is looking right, he is moving inside
+			// else he is moving outside
+			if (player.GetComponent<PlayerController> ().isLookingRight ()) 
+			{
+				snowEffect.Stop ();
+				snowEffect.Clear ();
+			} 
+			else 
+			{
+				snowEffect.Play ();
+			}
+		}
 	}
 }

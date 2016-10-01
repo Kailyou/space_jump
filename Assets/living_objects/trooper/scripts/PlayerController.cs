@@ -267,4 +267,9 @@ public class PlayerController : MonoBehaviour
 		do_lock = true;
 		Destroy (gameObject);
 	}
+
+	public bool isLookingRight()
+	{
+		return lookingRight;
+	}
 }

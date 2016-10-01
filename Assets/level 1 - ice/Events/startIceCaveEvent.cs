@@ -11,6 +11,7 @@ public class startIceCaveEvent : MonoBehaviour
 	/* REFERENCES */
 	public ParticleSystem snowEffect;
 	private GameObject player;
+	public MeshRenderer meshRendererBackground;
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -23,11 +24,16 @@ public class startIceCaveEvent : MonoBehaviour
 			// else he is moving outside
 			if (player.GetComponent<PlayerController> ().isLookingRight ()) 
 			{
+				meshRendererBackground.enabled = false;
+
+				// Stop snow effect
 				snowEffect.Stop ();
 				snowEffect.Clear ();
 			} 
 			else 
 			{
+				meshRendererBackground.enabled = true;
+
 				snowEffect.Play ();
 			}
 		}

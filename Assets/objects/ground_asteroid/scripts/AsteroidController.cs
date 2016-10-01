@@ -25,7 +25,7 @@ public class AsteroidController : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D other)
 	{
-		if (is_visible && other.collider.CompareTag ("Ground")) {
+		if (is_visible && (other.collider.CompareTag ("Ground") || other.collider.CompareTag ("Rocket"))) {
 			audioSource.Play ();
 		}
 	}

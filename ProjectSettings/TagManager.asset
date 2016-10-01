@@ -17,6 +17,7 @@ TagManager:
   - EventCollider
   - iceProjectile
   - Golem
+  - Rocket
   layers:
   - Default
   - TransparentFX

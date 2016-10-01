@@ -171,7 +171,7 @@ public class HealthController : MonoBehaviour
 	{
 		currentHealthPoints = maxHealthPoints;
 		isDead = false;
-		animator.SetBool ("dead", false);
+		animator.SetBool ("Death", false);
 		playerController.enabled = true;
 
 		// turn player if he is not looking right

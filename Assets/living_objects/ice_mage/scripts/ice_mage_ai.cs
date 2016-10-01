@@ -61,7 +61,7 @@ public class ice_mage_ai : MonoBehaviour
 		// Speed is set to 0 as long as hurt timer is active
 		UpdateHurtTimer ();
 
-		//UpdateAttack ();
+		UpdateAttack ();
 	}
 
 	private void FixedUpdate()

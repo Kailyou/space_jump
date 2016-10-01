@@ -16,6 +16,7 @@ TagManager:
   - Bounds (Events)
   - EventCollider
   - iceProjectile
+  - Golem
   layers:
   - Default
   - TransparentFX

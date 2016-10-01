@@ -3,17 +3,19 @@ using System.Collections;
 
 public class LaserDamage : MonoBehaviour {
 
-	public float damage = 1;
+	public int damage = 1;
 
 	private Vector3 initialPosition;
 
-	void Start() {
+	void Start() 
+	{
 		initialPosition = transform.position;
 	}
 
 	void FixedUpdate ()
 	{
-		if (Vector3.Distance (initialPosition, transform.position) >= 5) {
+		if (Vector3.Distance (initialPosition, transform.position) >= 5)
+		{
 			Destroy (gameObject);
 		}
 	}
@@ -23,7 +25,7 @@ public class LaserDamage : MonoBehaviour {
 	// laser will be destroyed itself after collision.
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (!other.CompareTag ("Player") && !other.CompareTag ("ground_bounds") && !other.CompareTag("Bound"))
+		if (!other.CompareTag ("Player") && !other.CompareTag ("ground_bounds") && !other.CompareTag("EventCollider"))
 		{
 			other.SendMessage ("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
 

@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
 {
 	/* CONFIG */
 	public float health = 5;
+	public bool stay_after_death = false;
 
 	/* REFERENCES */
 	private Animator animator;
@@ -12,9 +13,6 @@ public class EnemyHealth : MonoBehaviour
 	private Collider2D collider2d;
 
 	private bool death = false;
-
-
-
 
 	/* INIT */
 	void Start ()
@@ -25,16 +23,19 @@ public class EnemyHealth : MonoBehaviour
 	}
 
 
-	public void UpdateHP (float damageChange)
+	public void UpdateHP (int damageChange)
 	{
 		if (!death) 
 		{
-			health += damageChange;
+			health -= damageChange;
 
 			if (health <= 0) 
 			{
 				DieNow ();
-			}		
+			} else 
+			{
+				animator.SetTrigger ("Hurt");
+			}
 		}
 	}
 
@@ -43,10 +44,12 @@ public class EnemyHealth : MonoBehaviour
 	{
 		death = true;
 
-		rb2d.isKinematic = true;
-		collider2d.isTrigger = true;
+		if (!stay_after_death) {
+			rb2d.isKinematic = true;
+			collider2d.isTrigger = true;
+		}
 
-		animator.SetTrigger("death");
+		animator.SetTrigger("Death");
 
 		Invoke ("die", 1);
 	}
@@ -64,7 +67,9 @@ public class EnemyHealth : MonoBehaviour
 
 	private void die ()
 	{
-		this.gameObject.transform.Translate(Vector3.left * 9999);
-		StartCoroutine("SelfDestroy");
+		if (!stay_after_death) {
+			this.gameObject.transform.Translate (Vector3.left * 9999);
+			StartCoroutine ("SelfDestroy");
+		}
 	}
 }

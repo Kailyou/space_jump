@@ -13,6 +13,11 @@ TagManager:
   - Seeker
   - IceSpike
   - Ground
+  - Bounds (Events)
+  - EventCollider
+  - iceProjectile
+  - Golem
+  - Rocket
   layers:
   - Default
   - TransparentFX
@@ -23,7 +28,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - EventCollider
   - 
   - 
   - 

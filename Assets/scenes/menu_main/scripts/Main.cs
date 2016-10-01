@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Main : MonoBehaviour {
 
 	public void onStart() {
-		SceneManager.LoadScene ("Scenes/Game-findrocket");
+		SceneManager.LoadScene ("Scenes/Intro/Intro");
 	}
 
 	public void onExit() {

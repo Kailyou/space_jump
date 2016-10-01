@@ -88,8 +88,8 @@ public class SeekerAI : MonoBehaviour
 		}
 	}
 
-	private void ApplyDamage(float damage)
+	private void ApplyDamage(int damage)
 	{
-		enemyHealth.UpdateHP (-damage);
+		enemyHealth.UpdateHP (damage);
 	}
 }

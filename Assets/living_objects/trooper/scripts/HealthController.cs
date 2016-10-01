@@ -149,7 +149,7 @@ public class HealthController : MonoBehaviour
 	// restarts the whole game if the player is game over
 	void Dying ()
 	{
-		animator.SetBool ("is_dead", true);
+		animator.SetTrigger ("Death");
 		playerController.enabled = false;
 		currentLifePoints--;
 
@@ -171,7 +171,7 @@ public class HealthController : MonoBehaviour
 	{
 		currentHealthPoints = maxHealthPoints;
 		isDead = false;
-		animator.SetBool ("dead", false);
+		animator.SetBool ("Death", false);
 		playerController.enabled = true;
 
 		// turn player if he is not looking right

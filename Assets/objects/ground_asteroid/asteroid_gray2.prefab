@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11478942}
   - 82: {fileID: 8236246}
   - 114: {fileID: 11400412}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: asteroid_gray2
   m_TagString: Ground
   m_Icon: {fileID: 0}

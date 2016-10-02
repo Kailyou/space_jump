@@ -4,7 +4,7 @@ using System.Collections;
 public class MeleeAttackDamage : MonoBehaviour
 {
 	public PlayerController player;
-	public Animator animator;
+	private Animator animator;
 
 	public void Start()
 	{

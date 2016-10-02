@@ -78,11 +78,8 @@ public class SeekerAI : MonoBehaviour
 	{
 		if (respect_bounds)
 		{
-			if (other.collider.CompareTag ("Seeker")
-			   || other.collider.CompareTag ("Wolf"))
+			if (other.collider.CompareTag ("Enemy"))
 			{
-				Debug.Log (other.collider.name + ", " + walking_speed);
-
 				walking_speed = -walking_speed;
 			}
 		}

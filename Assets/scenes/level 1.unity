@@ -30367,6 +30367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483c21efe7b64564381ee2894b1ca4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snowEffect: {fileID: 178691780}
+  meshRendererBackground: {fileID: 1623015246}
 --- !u!1 &864815963
 GameObject:
   m_ObjectHideFlags: 0
@@ -47034,6 +47036,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483c21efe7b64564381ee2894b1ca4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snowEffect: {fileID: 178691780}
+  meshRendererBackground: {fileID: 1623015246}
 --- !u!61 &1360591413
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -49910,7 +49914,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 457622, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 89.3
+      value: 96.76
       objectReference: {fileID: 0}
     - target: {fileID: 457622, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: m_LocalPosition.y

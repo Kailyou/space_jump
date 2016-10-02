@@ -6,7 +6,7 @@ using System.Collections;
  * and lowers the light level
  */
 
-public class StartIceCaveEvent : MonoBehaviour 
+public class IceCaveEvent : MonoBehaviour 
 {
 	/* REFERENCES */
 	public ParticleSystem snowEffect;

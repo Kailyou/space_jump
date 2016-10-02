@@ -7,8 +7,6 @@ public class ice_mage_ai : MonoBehaviour
 	private float walkSpeed    			= 0.5f;
 	private float hitDamage_melee		= 4f;
 	private float hitDamage_range  		= 2f;
-	public Transform startRangeIceProjectile;
-	public Transform endRangeIceProjectile;
 
 	/* STATUS */
 	private bool lookingRight = false;
@@ -22,11 +20,11 @@ public class ice_mage_ai : MonoBehaviour
 	private EnemyHealth health;
 
 	/* ATTACK */
-	private float attackCooldownTime_range = 3f;
+	private float attackCooldownTime_range = 2f;
 	private float next_attack_range = 0f;
 	public GameObject iceProjectilePrefab;
 	public Transform iceProjectileSpawnPoint;
-	public float iceProjectileSpeed = 200;
+	public float iceProjectileSpeed = 250;
 
 	/* HURT */
 	private bool hurting                = false;

@@ -27,7 +27,7 @@ public class IceProjectile : MonoBehaviour
 	// laser will be destroyed itself after collision.
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag("Player") || other.CompareTag("Laser"))
+		if (other.CompareTag("Player") || other.CompareTag("Laser") || other.CompareTag("Ground"))
 		{
 			other.SendMessage ("ApplyDamage", damage, SendMessageOptions.DontRequireReceiver);
 

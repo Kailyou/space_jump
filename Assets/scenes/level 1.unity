@@ -58454,8 +58454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f52fdf514b55fd47b3196120d56d6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRangeIceProjectile: {fileID: 0}
-  endRangeIceProjectile: {fileID: 0}
   playerDetected: 0
   mage: {fileID: 1734805141}
   iceProjectilePrefab: {fileID: 115832, guid: b4e09ea5b8232bd4e9dbd792d4e649a1, type: 2}

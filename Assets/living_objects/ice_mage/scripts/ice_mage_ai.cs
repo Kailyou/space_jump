@@ -124,7 +124,7 @@ public class ice_mage_ai : MonoBehaviour
 
 			// Create laser object and adds a force to the looking side of the player
 			GameObject iceProjectile = (GameObject)Instantiate (iceProjectilePrefab, iceProjectileSpawnPoint.position, Quaternion.identity);
-			iceProjectile.tag = "iceProjectile";
+			iceProjectile.tag = "IceProjectile";
 
 			Vector3 direction = player.GetComponent<Rigidbody2D>().transform.position - rb2d.transform.position;
 			iceProjectile.GetComponent<Rigidbody2D> ().AddForce (direction.normalized * iceProjectileSpeed);

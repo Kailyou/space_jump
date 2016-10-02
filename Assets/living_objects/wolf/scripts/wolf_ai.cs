@@ -49,8 +49,9 @@ public class wolf_ai : MonoBehaviour
 	private float currentHurtTime 		= 0f;
 
 
-	// Use this for initialization
-	void Awake ()
+
+
+	void Start()
 	{
 		rb2d 		= GetComponent<Rigidbody2D> ();
 		animator	= GetComponent<Animator> ();

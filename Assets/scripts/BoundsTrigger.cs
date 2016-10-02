@@ -9,7 +9,7 @@ public class BoundsTrigger : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.tag == "Wolf" || other.tag == "Seeker" || other.tag == "Golem")
+		if (other.tag == "Enemy")
 		{
 			other.SendMessage ("OnBoundsTrigger", this.gameObject, SendMessageOptions.DontRequireReceiver);
 		}

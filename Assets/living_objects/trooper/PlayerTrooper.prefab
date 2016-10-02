@@ -30,6 +30,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &140008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 421782}
+  - 61: {fileID: 6150804}
+  m_Layer: 0
+  m_Name: meleeAttackRange
+  m_TagString: EventCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &174132
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,6 +70,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &421782
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 457622}
+  m_RootOrder: 2
 --- !u!4 &457622
 Transform:
   m_ObjectHideFlags: 1
@@ -61,12 +90,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.63, y: 1.84, z: 0}
+  m_LocalPosition: {x: -11.01, y: 1.29, z: 0}
   m_LocalScale: {x: 0.34198546, y: 0.34198546, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 484140}
   - {fileID: 493104}
+  - {fileID: 421782}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &484140
@@ -76,7 +106,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.67, y: -2.21, z: 0}
+  m_LocalPosition: {x: -0.43, y: -2.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -154,6 +184,20 @@ CircleCollider2D:
   m_Offset: {x: -0.41, y: 1.03}
   serializedVersion: 2
   m_Radius: 1.3719692
+--- !u!61 &6150804
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140008}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.6, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 4.77}
 --- !u!82 &8246742
 AudioSource:
   m_ObjectHideFlags: 1
@@ -262,10 +306,11 @@ MonoBehaviour:
   laserSpawnPoint: {fileID: 493104}
   laserSpeed: 500
   lookingRight: 1
-  idling: 0
+  alreadyDamageApplied: 0
+  meleeDamage: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294967020
   groundCheck: {fileID: 484140}
 --- !u!114 &11456296
 MonoBehaviour:

@@ -23,7 +23,10 @@ public class PlayerController : MonoBehaviour
 	private bool do_lock = false;
 
 	/* Attack */
+	public bool alreadyDamageApplied = false;
+
 	// Melee Attack
+	public int meleeDamage = 1;
 	private float attackCooldownTime_melee        	= 0.25f;
 	private float next_attack_melee = 0f;
 
@@ -92,6 +95,7 @@ public class PlayerController : MonoBehaviour
 				animator.SetTrigger ("attacking_melee");
 				next_attack_melee = Time.time + attackCooldownTime_melee;
 
+				alreadyDamageApplied = false;
 				idling = false;
 				timer = 5f;
 			}
@@ -161,8 +165,18 @@ public class PlayerController : MonoBehaviour
 		Destroy (gameObject);
 	}
 
+	public void setDamageAlreadyApplied(bool isDamageApplied)
+	{
+		alreadyDamageApplied = isDamageApplied;
+	}
+
 	public bool isLookingRight()
 	{
 		return lookingRight;
+	}
+
+	public bool isDamageAlreadyApplied()
+	{
+		return alreadyDamageApplied;
 	}
 }

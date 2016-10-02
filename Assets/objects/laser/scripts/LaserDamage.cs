@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LaserDamage : MonoBehaviour {
 
-	public int damage = 1;
+	public int damage = 2;
 
 	private Vector3 initialPosition;
 

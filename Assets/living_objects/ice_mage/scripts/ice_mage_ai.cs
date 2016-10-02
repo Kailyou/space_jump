@@ -3,17 +3,11 @@ using System.Collections;
 
 public class ice_mage_ai : MonoBehaviour
 {
-	/* CONFIG */
-	private float walkSpeed    			= 0.5f;
-	private float hitDamage_melee		= 4f;
-	private float hitDamage_range  		= 2f;
-
 	/* STATUS */
 	private bool lookingRight = false;
 	public bool playerDetected;
 
 	/* REFERENCES */
-	public GameObject mage;
 	private Rigidbody2D	rb2d;
 	private Animator 	animator;
 	private GameObject  player;

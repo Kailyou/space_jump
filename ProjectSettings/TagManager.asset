@@ -6,16 +6,13 @@ TagManager:
   tags:
   - DeadZone
   - GroundBounds
-  - Bound
   - Wolf
   - Wolf_FoV
   - Laser
-  - Seeker
   - Ground
   - EventCollider
   - IceProjectile
   - Enemy
-  - Golem
   - Rocket
   layers:
   - Default

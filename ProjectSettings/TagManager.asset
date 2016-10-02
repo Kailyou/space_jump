@@ -5,17 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - DeadZone
-  - ground_bounds
+  - GroundBounds
   - Bound
   - Wolf
   - Wolf_FoV
   - Laser
   - Seeker
-  - IceSpike
   - Ground
-  - Bounds (Events)
   - EventCollider
-  - iceProjectile
+  - IceProjectile
   - Enemy
   layers:
   - Default

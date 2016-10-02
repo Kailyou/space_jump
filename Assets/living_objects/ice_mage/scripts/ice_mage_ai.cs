@@ -7,27 +7,23 @@ public class ice_mage_ai : MonoBehaviour
 	private float walkSpeed    			= 0.5f;
 	private float hitDamage_melee		= 4f;
 	private float hitDamage_range  		= 2f;
+	public Transform startRangeIceProjectile;
+	public Transform endRangeIceProjectile;
 
 	/* STATUS */
 	private bool lookingRight = false;
+	public bool playerDetected;
 
 	/* REFERENCES */
+	public GameObject mage;
 	private Rigidbody2D	rb2d;
 	private Animator 	animator;
 	private GameObject  player;
 	private EnemyHealth health;
 
-	/* RAYCAST */
-	public Transform startRangeIceProjectile;
-	public Transform endRangeIceProjectile;
-	public bool playerDetected;
-	public bool playerAttackRange_iceProjectile;
-
 	/* ATTACK */
-	private bool attacking_iceProjectile  = false;
-	private bool attackOnCD_iceProjectile = false;
-	private float currentCDIceProjectile = 0f;
-	private float CDIceProjectile = 3f;
+	private float attackCooldownTime_range = 3f;
+	private float next_attack_range = 0f;
 	public GameObject iceProjectilePrefab;
 	public Transform iceProjectileSpawnPoint;
 	public float iceProjectileSpeed = 200;
@@ -56,7 +52,17 @@ public class ice_mage_ai : MonoBehaviour
 
 		animator.SetBool ("PlayerDetected", playerDetected);
 
-		RaycastingPlayerInAttackRange ();
+		if (player.transform.position.x > transform.position.x
+		   && !lookingRight) 
+		{
+			Flip();
+		}
+
+		if (player.transform.position.x < transform.position.x
+			&& lookingRight) 
+		{
+			Flip();
+		}
 
 		// Speed is set to 0 as long as hurt timer is active
 		UpdateHurtTimer ();
@@ -95,40 +101,30 @@ public class ice_mage_ai : MonoBehaviour
 
 	private void UpdateAttack()
 	{
-		// Ice Projectile
-		// If attack is on cool down,
-		// update the cool down and leave function after
-		if (attackOnCD_iceProjectile) 
+		// Range Attack
+		if(playerDetected && Time.time > next_attack_range)
 		{
-			currentCDIceProjectile += Time.deltaTime;
+			next_attack_range = Time.time + attackCooldownTime_range;
 
-			if (currentCDIceProjectile > CDIceProjectile)
-			{
-				attackOnCD_iceProjectile = false;
-				currentCDIceProjectile = 0f;
-			}
-
-			return;
-		}
-
-		// Leave if Player is not in attack range
-		if (!playerAttackRange_iceProjectile)
-			return;
-
-		// Attack if player is in range and the attack is not on cool down yet.
-		if (playerAttackRange_iceProjectile && !attackOnCD_iceProjectile)
-		{
 			animator.SetTrigger ("Attack_IceProjectile");
-			attackOnCD_iceProjectile = true;
+
 			//audioSource.Play ();
 
 			// Create laser object and adds a force to the looking side of the player
 			GameObject iceProjectile = (GameObject)Instantiate (iceProjectilePrefab, iceProjectileSpawnPoint.position, Quaternion.identity);
 			iceProjectile.tag = "IceProjectile";
 
+			// Turn iceProjectile around if needed
+			if (lookingRight)
+			{
+				Vector3 myScale = iceProjectile.transform.localScale;
+				myScale.x *= -1;
+				iceProjectile.transform.localScale = myScale;
+			}
+
 			Vector3 direction = player.GetComponent<Rigidbody2D>().transform.position - rb2d.transform.position;
 			iceProjectile.GetComponent<Rigidbody2D> ().AddForce (direction.normalized * iceProjectileSpeed);
-		} 
+		}
 	}
 
 
@@ -140,16 +136,16 @@ public class ice_mage_ai : MonoBehaviour
 
 
 
-	/* RAYCAST */
-
-	private void RaycastingPlayerInAttackRange()
-	{
-		Debug.DrawLine (startRangeIceProjectile.position, endRangeIceProjectile.position, Color.green);
-		playerAttackRange_iceProjectile = Physics2D.Linecast (startRangeIceProjectile.position, endRangeIceProjectile.position, 1 << LayerMask.NameToLayer ("Player"));
-	}
-
 
 	/* OTHERS */
+
+	public void Flip ()
+	{
+		lookingRight = !lookingRight;
+		Vector3 myScale = transform.localScale;
+		myScale.x *= -1;
+		transform.localScale = myScale;
+	}
 
 	public void PlayerDetected()
 	{

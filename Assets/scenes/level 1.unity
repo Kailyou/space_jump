@@ -15253,7 +15253,8 @@ Prefab:
       propertyPath: m_Name
       value: IceBox - Destroybale (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11410250, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &405268844 stripped
@@ -15273,11 +15274,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
+--- !u!114 &405268847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 405268845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf4c017148a9e40910611d8bac740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1001 &406648532
 Prefab:
   m_ObjectHideFlags: 0
@@ -15442,12 +15455,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 416804257}
   m_LocalRotation: {x: 0.40821794, y: -0.23456973, z: 0.109381676, w: 0.87542605}
-  m_LocalPosition: {x: 23.437618, y: 3.0529287, z: 0}
+  m_LocalPosition: {x: 28.037619, y: -0.9470713, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1283299353}
+  m_RootOrder: 3
 --- !u!1 &417132496
 GameObject:
   m_ObjectHideFlags: 0
@@ -19207,7 +19220,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 597
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11410250, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &540682698
@@ -19790,7 +19804,8 @@ Prefab:
       propertyPath: m_Name
       value: IceBox - Destroybale (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11410250, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &558343137 stripped
@@ -19815,6 +19830,18 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
+--- !u!114 &558343140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 558343138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf4c017148a9e40910611d8bac740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1001 &558733201
 Prefab:
   m_ObjectHideFlags: 0
@@ -22026,7 +22053,8 @@ Prefab:
       propertyPath: m_Name
       value: IceBox - Destroybale (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11410250, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &626067773 stripped
@@ -22046,11 +22074,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
+--- !u!114 &626067776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626067774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf4c017148a9e40910611d8bac740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1 &633243534
 GameObject:
   m_ObjectHideFlags: 0
@@ -31981,7 +32021,7 @@ Transform:
   - {fileID: 1685242497}
   - {fileID: 1348266987}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!1 &930371391
 GameObject:
   m_ObjectHideFlags: 0
@@ -34931,7 +34971,8 @@ Prefab:
       propertyPath: m_Name
       value: IceBox - Destroybale (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11410250, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1012328170 stripped
@@ -34951,11 +34992,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
+--- !u!114 &1012328173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1012328171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf4c017148a9e40910611d8bac740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1 &1012992997
 GameObject:
   m_ObjectHideFlags: 0
@@ -36358,11 +36411,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
+--- !u!114 &1050122526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050122523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf4c017148a9e40910611d8bac740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1 &1051118748
 GameObject:
   m_ObjectHideFlags: 0
@@ -44402,6 +44467,7 @@ Transform:
   - {fileID: 1623015245}
   - {fileID: 1023895446}
   - {fileID: 178691781}
+  - {fileID: 416804259}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &1283299354
@@ -44511,6 +44577,7 @@ Transform:
   - {fileID: 1762941034}
   - {fileID: 1206401267}
   - {fileID: 1809569493}
+  - {fileID: 1318930602}
   m_Father: {fileID: 0}
   m_RootOrder: 8
 --- !u!1 &1290324780
@@ -45404,8 +45471,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1318930602}
   - 212: {fileID: 1318930601}
+  - 58: {fileID: 1318930603}
   m_Layer: 0
-  m_Name: force-field
+  m_Name: Level End Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45452,8 +45520,22 @@ Transform:
   m_LocalScale: {x: 0.3323961, y: 0.3323961, z: 0.3323961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 1285526948}
+  m_RootOrder: 9
+--- !u!58 &1318930603
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318930600}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -2.46}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1001 &1319573454
 Prefab:
   m_ObjectHideFlags: 0
@@ -46811,7 +46893,7 @@ GameObject:
   - 61: {fileID: 1360591413}
   - 114: {fileID: 1360591412}
   m_Layer: 0
-  m_Name: end ice cave (1)
+  m_Name: end ice cave
   m_TagString: EventCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47520,7 +47602,8 @@ Prefab:
       propertyPath: m_Name
       value: IceBox - Destroybale (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11410250, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1373534554 stripped
@@ -47540,11 +47623,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
+--- !u!114 &1373534557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1373534555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf4c017148a9e40910611d8bac740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1001 &1376514010
 Prefab:
   m_ObjectHideFlags: 0
@@ -47588,7 +47683,8 @@ Prefab:
       propertyPath: m_Name
       value: IceBox - Destroybale (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11410250, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1376514011 stripped
@@ -47608,11 +47704,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
+--- !u!114 &1376514014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376514012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf4c017148a9e40910611d8bac740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1 &1377565314
 GameObject:
   m_ObjectHideFlags: 0
@@ -55823,7 +55931,8 @@ Prefab:
       propertyPath: m_Name
       value: IceBox - Destroybale (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11410250, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1651188844 stripped
@@ -55843,11 +55952,23 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
+--- !u!114 &1651188847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651188845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf4c017148a9e40910611d8bac740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1 &1651314183
 GameObject:
   m_ObjectHideFlags: 0
@@ -67153,7 +67274,8 @@ Prefab:
       propertyPath: m_Name
       value: IceBox - Destroybale (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11410250, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d58d318a13652ff4fb5184184691671e, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2023926012 stripped
@@ -67178,6 +67300,18 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1.01, y: 1.01}
+--- !u!114 &2023926015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023926013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbf4c017148a9e40910611d8bac740f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
 --- !u!1 &2023944618
 GameObject:
   m_ObjectHideFlags: 0

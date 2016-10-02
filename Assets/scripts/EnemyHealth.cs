@@ -46,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
 	{
 		death = true;
 
-		rb2d.isKinematic = true;
+		rb2d.isKinematic = true; 
 		collider2d.isTrigger = true;
 
 		animator.SetTrigger("Death");

@@ -56,6 +56,10 @@ public class GolemAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (enemyHealth.isDeath ())
+			return;
+
 		RaycastingHeardPlayer ();
 		RaycastingPlayerDetected ();
 		RaycastingPlayerInAttackRange ();

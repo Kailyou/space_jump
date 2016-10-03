@@ -6,7 +6,7 @@ using System.Collections;
  * and lowers the light level
  */
 
-public class IceCaveEvent : MonoBehaviour 
+public class EndIceCaveEvent : MonoBehaviour 
 {
 	/* REFERENCES */
 	public ParticleSystem snowEffect;
@@ -24,17 +24,16 @@ public class IceCaveEvent : MonoBehaviour
 			// else he is moving outside
 			if (player.GetComponent<PlayerController>().lookingRight) 
 			{
-				meshRendererBackground.enabled = false;
-
-				// Stop snow effect
-				snowEffect.Stop ();
-				snowEffect.Clear ();
-			} 
-			else 
-			{
 				meshRendererBackground.enabled = true;
 
 				snowEffect.Play ();
+			} 
+			else 
+			{
+				meshRendererBackground.enabled = false;
+
+				snowEffect.Stop ();
+				snowEffect.Clear ();
 			}
 		}
 	}

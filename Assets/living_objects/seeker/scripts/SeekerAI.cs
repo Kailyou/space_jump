@@ -42,6 +42,9 @@ public class SeekerAI : MonoBehaviour
 		if (!started)
 			return;
 
+		if (enemyHealth.isDeath ())
+			return;
+
 		rb2d.velocity = new Vector2 (walking_speed, rb2d.velocity.y);
 
 		// Set speed to 0 if death

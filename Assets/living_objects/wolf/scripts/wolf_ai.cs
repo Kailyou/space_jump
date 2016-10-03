@@ -79,6 +79,9 @@ public class wolf_ai : MonoBehaviour
 	/* UPATE */
 	void Update()
 	{
+		if (health.isDeath())
+			return;
+
 		// Check if the wolf detected the player so far by using a raycast
 		// and check if the player is in attack range.
 		RaycastingHeardPlayer ();

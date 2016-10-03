@@ -93,6 +93,9 @@ public class ice_mage_ai : MonoBehaviour
 
 	private void UpdateAttack()
 	{
+		if (health.isDeath())
+			return;
+
 		// Range Attack
 		if(playerDetected && Time.time > next_attack_range)
 		{

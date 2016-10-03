@@ -43526,22 +43526,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 22492754, guid: 77035861d54034918b7a6ffa9b684c94, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -106
-      objectReference: {fileID: 0}
-    - target: {fileID: 11482104, guid: 77035861d54034918b7a6ffa9b684c94, type: 2}
-      propertyPath: m_Text
-      value: 0 / 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 22492754, guid: 77035861d54034918b7a6ffa9b684c94, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22492754, guid: 77035861d54034918b7a6ffa9b684c94, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77035861d54034918b7a6ffa9b684c94, type: 2}
   m_IsPrefabParent: 0

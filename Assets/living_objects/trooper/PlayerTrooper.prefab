@@ -39,6 +39,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 421782}
   - 61: {fileID: 6150804}
+  - 114: {fileID: 11476312}
   m_Layer: 0
   m_Name: meleeAttackRange
   m_TagString: EventCollider
@@ -331,6 +332,18 @@ MonoBehaviour:
   healthGui: {fileID: 0}
   lifePointsText: {fileID: 0}
   messageText: {fileID: 0}
+--- !u!114 &11476312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c77c11c62b3d04a9bc6822f10e72f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11421778}
 --- !u!212 &21248854
 SpriteRenderer:
   m_ObjectHideFlags: 1

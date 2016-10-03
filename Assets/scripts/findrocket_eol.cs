@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class findrocket_eol : MonoBehaviour
 {
-
 	public GameObject rocket;
 
 	void OnTriggerEnter2D (Collider2D other)

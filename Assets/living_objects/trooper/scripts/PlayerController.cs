@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector]
 	public bool lookingRight = true;
 	private bool grounded  = false;
-	private bool do_lock = false;
+	public bool do_lock = false;
 	public int collectAmount;
 	public int maxCollectAmount ;
 

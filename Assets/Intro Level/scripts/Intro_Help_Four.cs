@@ -31,7 +31,7 @@ public class Intro_Help_Four : MonoBehaviour
 		if (other.CompareTag ("Player") && !infoLocked) 
 		{
 			playerController.do_lock = true;
-			messageText.text = "That's it, good luck!";
+			messageText.text = "Press ESC to open the menu.";
 			infoLocked = true;
 			active     = true;
 			waitTime   = Time.time + 2f;

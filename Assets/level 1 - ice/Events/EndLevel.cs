@@ -7,6 +7,8 @@ public class EndLevel : MonoBehaviour
 {
 	public PlayerController playerController;
 	public Text messageText;
+	public string nextScene;
+	public string hint;
 
 	private void OnTriggerEnter2D (Collider2D other)
 	{
@@ -14,11 +16,11 @@ public class EndLevel : MonoBehaviour
 		{
 			if (playerController.collectAmount == playerController.maxCollectAmount) 
 			{
-				SceneManager.LoadScene ("Scenes/rocketcrash/rocketcrash");
+				SceneManager.LoadScene (nextScene);
 			} 
 			else 
 			{
-				messageText.text = "Collect all energy before continue travelling.";
+				messageText.text = hint;
 			}
 		}
 	}

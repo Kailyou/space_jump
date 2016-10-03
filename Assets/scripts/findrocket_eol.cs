@@ -18,6 +18,6 @@ public class findrocket_eol : MonoBehaviour
 
 	void nextLevel ()
 	{
-		SceneManager.LoadScene ("Scenes/rocketcrash/rocketcrash");
+		SceneManager.LoadScene ("Scenes/level 1");
 	}
 }

@@ -20,6 +20,7 @@ public class wolf_ai : MonoBehaviour
 	private Animator 	animator;
 	private GameObject  player;
 	private EnemyHealth health;
+	private AudioSource audioSource;
 
 	/* RAYCAST */
 	public Transform sightStart;
@@ -57,6 +58,7 @@ public class wolf_ai : MonoBehaviour
 		animator	= GetComponent<Animator> ();
 		health      = GetComponent<EnemyHealth> ();
 		player  	= GameObject.FindGameObjectWithTag ("Player");
+		audioSource = GetComponent<AudioSource> ();
 
 		rb2d.isKinematic = true;
 
@@ -253,6 +255,7 @@ public class wolf_ai : MonoBehaviour
 
 	private void ApplyDamage(int damage)
 	{
+		audioSource.Play ();
 		hurting = true;
 		health.UpdateHP (damage);
 	}

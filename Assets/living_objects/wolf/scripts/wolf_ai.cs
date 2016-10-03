@@ -4,8 +4,8 @@ using System.Collections;
 public class wolf_ai : MonoBehaviour
 {
 	/* CONFIG */
-	private float walkSpeed    			= 0.5f;                     
-	private float chaseSpeed	     	= 1.5f;
+	private float walkSpeed    			= 2.5f;                     
+	private float chaseSpeed	     	= 7f;
 	private float hitDamage        		= 2f;
 
 	[HideInInspector] 
@@ -128,7 +128,7 @@ public class wolf_ai : MonoBehaviour
 
 			if (currentDamageDelayTime > attackDamageDelayTime) 
 			{
-				player.SendMessage ("ApplyDamage", 2, SendMessageOptions.DontRequireReceiver);
+				player.SendMessage ("ApplyDamage", hitDamage, SendMessageOptions.DontRequireReceiver);
 				attacking 				= false;
 				currentDamageDelayTime	= 0f;
 			}

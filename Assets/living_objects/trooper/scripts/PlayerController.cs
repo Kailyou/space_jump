@@ -55,7 +55,8 @@ public class PlayerController : MonoBehaviour
 		// Level 1
 		collectAmount    = 0;
 		maxCollectAmount = 6;
-		collectableText.text = collectAmount.ToString() + " / " + maxCollectAmount.ToString();
+		if(collectableText)
+			collectableText.text = collectAmount.ToString() + " / " + maxCollectAmount.ToString();
 	}
 
 	void Update ()
@@ -186,6 +187,7 @@ public class PlayerController : MonoBehaviour
 	{
 	    collectAmount += amount;
 
-		collectableText.text = collectAmount.ToString() + " / " + maxCollectAmount.ToString();
+		if(collectableText)
+			collectableText.text = collectAmount.ToString() + " / " + maxCollectAmount.ToString();
 	}
 }

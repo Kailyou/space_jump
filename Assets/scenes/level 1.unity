@@ -9956,7 +9956,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 254282614}
   - 212: {fileID: 254282613}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IceBox (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13976,7 +13976,7 @@ Transform:
   - {fileID: 2018841564}
   - {fileID: 790831426}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &372280970
 GameObject:
   m_ObjectHideFlags: 0
@@ -20944,6 +20944,22 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &584121039 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 140008, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
+  m_PrefabInternal: {fileID: 1456080154}
+--- !u!114 &584121042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 584121039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c77c11c62b3d04a9bc6822f10e72f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 717525342}
 --- !u!1 &584263003
 GameObject:
   m_ObjectHideFlags: 0
@@ -24287,7 +24303,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &702640772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24755,6 +24771,12 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &717525342 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11421778, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83,
+    type: 2}
+  m_PrefabInternal: {fileID: 1456080154}
+  m_Script: {fileID: 11500000, guid: aff0d9a764b26491fba1987617895e55, type: 3}
 --- !u!1 &717626876
 GameObject:
   m_ObjectHideFlags: 0
@@ -45258,7 +45280,7 @@ GameObject:
   - 4: {fileID: 1310746456}
   - 212: {fileID: 1310746455}
   - 61: {fileID: 1310746457}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IceBox (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45568,6 +45590,7 @@ GameObject:
   - 4: {fileID: 1318930602}
   - 212: {fileID: 1318930601}
   - 58: {fileID: 1318930603}
+  - 114: {fileID: 1318930604}
   m_Layer: 0
   m_Name: Level End Portal
   m_TagString: EventCollider
@@ -45627,11 +45650,24 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -2.46}
   serializedVersion: 2
   m_Radius: 2
+--- !u!114 &1318930604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1318930600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1edc1ea85ebdd34cb85ed0dec55773e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 717525342}
+  messageText: {fileID: 1253762490}
 --- !u!1001 &1319573454
 Prefab:
   m_ObjectHideFlags: 0
@@ -47005,7 +47041,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1360591410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 161, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -47019,7 +47055,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360591410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483c21efe7b64564381ee2894b1ca4d9, type: 3}
+  m_Script: {fileID: 11500000, guid: b7e7866b2e4ffac4e8c90bddf9684161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   snowEffect: {fileID: 178691780}
@@ -47035,7 +47071,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 161, y: 1.5}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
 --- !u!1 &1360826869
@@ -48542,7 +48578,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1396711131
 GameObject:
   m_ObjectHideFlags: 0
@@ -49848,11 +49884,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 457622, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.37
       objectReference: {fileID: 0}
     - target: {fileID: 457622, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.29
+      value: 1.32997
       objectReference: {fileID: 0}
     - target: {fileID: 457622, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: m_LocalPosition.z
@@ -49876,7 +49912,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 457622, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11421778, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: collectableText
@@ -49897,6 +49933,10 @@ Prefab:
     - target: {fileID: 174132, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
       propertyPath: m_Name
       value: PLAYER
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028630, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
+      propertyPath: m_SleepingMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3fbaf488e2c0f4fcdb46c2fd44fd3b83, type: 2}
@@ -53807,7 +53847,7 @@ GameObject:
   - 4: {fileID: 1587937455}
   - 212: {fileID: 1587937454}
   - 61: {fileID: 1587937456}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IceBox (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58103,7 +58143,7 @@ GameObject:
   - 4: {fileID: 1733237250}
   - 212: {fileID: 1733237249}
   - 61: {fileID: 1733237251}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IceBox (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67500,7 +67540,7 @@ GameObject:
   - 4: {fileID: 2026836985}
   - 212: {fileID: 2026836984}
   - 61: {fileID: 2026836986}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IceBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69181,7 +69221,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2078198956}
   - 212: {fileID: 2078198955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IceBox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

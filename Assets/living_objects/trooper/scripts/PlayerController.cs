@@ -30,13 +30,13 @@ public class PlayerController : MonoBehaviour
 	public bool alreadyDamageApplied = false;
 
 	// Melee Attack
-	public int meleeDamage = 1;
-	private float attackCooldownTime_melee        	= 0.25f;
-	private float next_attack_melee = 0f;
+	public int meleeDamage 					= 1;
+	private float attackCooldownTime_melee	= 0.25f;
+	private float next_attack_melee 		= 0f;
 
 	// Range Attack
-	private float attackCooldownTime_range        	= 1f;
-	private float next_attack_range = 0f;
+	private float attackCooldownTime_range	= 1f;
+	private float next_attack_range 		= 0f;
 
 	// Collision detection
 	public LayerMask whatIsGround;

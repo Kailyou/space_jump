@@ -23,8 +23,6 @@ public class CollectableEnergy : MonoBehaviour
 
 		if (other.collider.CompareTag ("Player")) 
 		{
-			Debug.Log ("test");
-
 			is_destroyed = true;
 			sp.enabled = false;
 			collider2d.enabled = false;

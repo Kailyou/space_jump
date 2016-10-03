@@ -11,7 +11,6 @@ GameObject:
   - 212: {fileID: 21201112}
   - 50: {fileID: 5063950}
   - 95: {fileID: 9531920}
-  - 114: {fileID: 11421514}
   - 114: {fileID: 11496620}
   - 114: {fileID: 11486012}
   - 60: {fileID: 6010288}
@@ -29,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108504}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.49574, y: 3.2824807, z: 0.125}
+  m_LocalPosition: {x: 2.4015002, y: 1.3732886, z: 0.125}
   m_LocalScale: {x: -0.3398618, y: 0.3398618, z: 0.3398618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -175,18 +174,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11421514
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 108504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 162d014e7d4c44696bb36c71d24ab437, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dotName: seeker
 --- !u!114 &11486012
 MonoBehaviour:
   m_ObjectHideFlags: 1

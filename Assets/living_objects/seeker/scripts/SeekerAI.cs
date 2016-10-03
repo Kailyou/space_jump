@@ -4,8 +4,8 @@ using System.Collections;
 public class SeekerAI : MonoBehaviour 
 {
 	// Config
-	public float walking_speed = 0;
-	public bool respect_bounds = true;
+	public float walking_speed 	= 0;
+	public bool respect_bounds	= true;
 
 	// References
 	private Rigidbody2D rb2d;
@@ -13,6 +13,12 @@ public class SeekerAI : MonoBehaviour
 	private Vector3 scaleBackup;
 	private EnemyHealth enemyHealth;
 
+	// DOT
+	private int dotDamage 			= 1;
+	private float dotCooldownTime	= 0.5f;
+	private float next_dot_time		= 0f;
+
+	// Stats
 	private bool started = false;
 
 	// Use this for initialization
@@ -82,6 +88,16 @@ public class SeekerAI : MonoBehaviour
 			{
 				walking_speed = -walking_speed;
 			}
+		}
+	}
+
+	void OnCollisionStay2D (Collision2D other)
+	{
+		if (other.collider.CompareTag ("Player")  && Time.time > next_dot_time)
+		{
+			next_dot_time = Time.time + dotCooldownTime;
+
+			other.collider.SendMessage ("ApplyDamage", dotDamage);
 		}
 	}
 

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-
 	// Config
 	public int maxLifePoints = 5;
 	public int maxHealthPoints = 17;
@@ -18,12 +17,6 @@ public class HealthController : MonoBehaviour
 	private int currentLifePoints;
 	private bool isDamageable	= true;
 	private bool isDead 		= false;
-
-	// Dot damage
-	private bool isDotActive 			= false;
-	private int dotDamage 				= 0;
-	private float dotTimerDelta 		= 0f;
-	private float dotTimerTillDamage	= 0f;
 
 	// References
 	private Animator animator;
@@ -48,22 +41,6 @@ public class HealthController : MonoBehaviour
 
 		messageText.text = "";
 		updateGUI ();
-	}
-
-
-
-
-	void Update ()
-	{
-		if (isDotActive) {
-			dotTimerDelta += Time.deltaTime;
-
-			if (dotTimerDelta >= dotTimerTillDamage) {
-				//Debug.Log ("test");
-				ApplyDamage (dotDamage);
-				dotTimerDelta = 0f;
-			}
-		}
 	}
 
 
@@ -97,37 +74,7 @@ public class HealthController : MonoBehaviour
 		isDamageable = true;
 	}
 
-	// Activates the dot damage
-	void ActivateDot (string type)
-	{
-		isDotActive = true;
 
-		if (type.Equals ("iceSpikes"))
-		{
-			dotDamage = 1;
-			dotTimerTillDamage	= 1f;	
-		} 
-
-		if (type.Equals ("seeker"))
-		{
-			dotDamage = 1;
-			dotTimerTillDamage	= 1f;	
-		} 
-
-		// Make sure that at least 1 damage will be taken each second
-		if (dotTimerTillDamage <= 0) 
-		{
-			dotDamage = 1;
-			dotTimerTillDamage = 1f;
-		}
-	}
-
-	// Deactivates the dot damage
-	void DeactiveDot ()
-	{
-		isDotActive = false;
-		dotDamage = 0;
-	}
 
 	public void AddHealth (float extraHealth)
 	{

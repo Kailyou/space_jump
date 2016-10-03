@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
 	private Animator animator;
 	private Rigidbody2D rb2d;
 	private Collider2D collider2d;
+	private AudioSource audioSource;
 
 	private bool death = false;
 
@@ -20,11 +21,16 @@ public class EnemyHealth : MonoBehaviour
 		animator = GetComponent<Animator> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 		collider2d = GetComponent<Collider2D> ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 
 	public void UpdateHP (int damageChange)
 	{
+		if (audioSource) {
+			audioSource.Play ();
+		}
+
 		if (!death) 
 		{
 			health -= damageChange;

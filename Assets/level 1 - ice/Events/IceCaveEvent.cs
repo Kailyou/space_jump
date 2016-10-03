@@ -22,7 +22,7 @@ public class IceCaveEvent : MonoBehaviour
 			// Check if player is moving out or inside the cave
 			// is he is looking right, he is moving inside
 			// else he is moving outside
-			if (player.GetComponent<PlayerController> ().isLookingRight ()) 
+			if (player.GetComponent<PlayerController> ()) 
 			{
 				meshRendererBackground.enabled = false;
 

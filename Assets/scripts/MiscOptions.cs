@@ -30,8 +30,10 @@ public class MiscOptions : MonoBehaviour {
 		}
 	}
 
-	public void restart() {
-		if (restartOnDestroy) {
+	public void restart() 
+	{
+		if (restartOnDestroy)
+		{
 			GameObject clone = (GameObject)Instantiate (gameObject, startPosition, Quaternion.identity);
 		}
 	}

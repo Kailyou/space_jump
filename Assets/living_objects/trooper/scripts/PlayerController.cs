@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D rb2d;
 	private Animator animator;
 	private AudioSource audioSource;
+	public Text collectableText;
 
 	// Config
 	public float maxSpeed  = 10;
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour
 	public bool lookingRight = true;
 	private bool grounded  = false;
 	private bool do_lock = false;
+	public int collectAmount;
+	public int maxCollectAmount ;
 
 	/* Attack */
 	public bool alreadyDamageApplied = false;
@@ -47,6 +51,11 @@ public class PlayerController : MonoBehaviour
 		rb2d = GetComponent<Rigidbody2D> ();
 		animator = GetComponent<Animator> ();
 		audioSource = GetComponent<AudioSource> ();
+
+		// Level 1
+		collectAmount    = 0;
+		maxCollectAmount = 6;
+		collectableText.text = collectAmount.ToString() + " / " + maxCollectAmount.ToString();
 	}
 
 	void Update ()
@@ -151,6 +160,19 @@ public class PlayerController : MonoBehaviour
 		animator.SetFloat ("speed", Mathf.Abs (rb2d.velocity.x));
 	}
 
+
+
+
+	/* OTHERS */
+
+	// Locks the controll input of the player
+	public void Lock ()
+	{
+		do_lock = true;
+		Destroy (gameObject);
+	}
+
+	// Flips the player
 	public void Flip ()
 	{
 		lookingRight = !lookingRight;
@@ -159,24 +181,11 @@ public class PlayerController : MonoBehaviour
 		transform.localScale = myScale;
 	}
 
-	public void Lock ()
+	// Adds the given collectamount to the player
+	public void AddCollectable(int amount)
 	{
-		do_lock = true;
-		Destroy (gameObject);
-	}
+	    collectAmount += amount;
 
-	public void setDamageAlreadyApplied(bool isDamageApplied)
-	{
-		alreadyDamageApplied = isDamageApplied;
-	}
-
-	public bool isLookingRight()
-	{
-		return lookingRight;
-	}
-
-	public bool isDamageAlreadyApplied()
-	{
-		return alreadyDamageApplied;
+		collectableText.text = collectAmount.ToString() + " / " + maxCollectAmount.ToString();
 	}
 }

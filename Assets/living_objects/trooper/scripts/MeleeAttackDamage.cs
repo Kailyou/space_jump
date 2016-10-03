@@ -13,10 +13,10 @@ public class MeleeAttackDamage : MonoBehaviour
 
 	public void OnTriggerStay2D(Collider2D other)
 	{
-		if(animator.GetCurrentAnimatorStateInfo(0).IsName ("Attack_Melee") && !player.isDamageAlreadyApplied() && other.CompareTag ("Enemy"))
+		if(animator.GetCurrentAnimatorStateInfo(0).IsName ("Attack_Melee") && !player.alreadyDamageApplied && other.CompareTag ("Enemy"))
 		{
 			other.SendMessage ("ApplyDamage", player.meleeDamage);	
-			player.setDamageAlreadyApplied(true);
+			player.alreadyDamageApplied = true;
 		}
 	}
 }

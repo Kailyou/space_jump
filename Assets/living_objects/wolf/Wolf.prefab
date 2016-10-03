@@ -134,7 +134,7 @@ GameObject:
   - 114: {fileID: 11423292}
   - 114: {fileID: 11469114}
   - 60: {fileID: 6066442}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -245,8 +245,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.93, y: 1.1, z: 0}
-  m_LocalScale: {x: -0.4525698, y: 0.45256978, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4525698, y: 0.45256978, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 409774}

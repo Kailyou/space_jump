@@ -31,7 +31,7 @@ GameObject:
   - 114: {fileID: 11478908}
   - 50: {fileID: 5065528}
   - 114: {fileID: 11436406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ice Mage
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -73,8 +73,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 92.04506, y: 1.2605293, z: -0.078125}
-  m_LocalScale: {x: -0.4189435, y: 0.41894352, z: 0.41894352}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.4189435, y: 0.41894352, z: 0.1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 404342}

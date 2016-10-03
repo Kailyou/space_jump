@@ -28,8 +28,6 @@ public class Intro_Help_Two : MonoBehaviour
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		Debug.Log ("test2");
-
 		if (other.CompareTag ("Player") && !infoLocked) 
 		{
 			playerController.do_lock = true;

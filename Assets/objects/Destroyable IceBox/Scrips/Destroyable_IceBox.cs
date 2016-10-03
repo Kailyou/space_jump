@@ -10,8 +10,6 @@ public class Destroyable_IceBox : MonoBehaviour
 	{
 		health--;
 
-		Debug.Log (health);
-
 		if (health == 0)
 			Destroy (gameObject);
 	}

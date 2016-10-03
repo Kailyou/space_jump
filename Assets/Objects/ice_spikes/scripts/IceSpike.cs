@@ -16,7 +16,7 @@ public class IceSpike : MonoBehaviour
 		{
 			next_dot_time = Time.time + dotCooldownTime_melee;
 
-			other.collider.SendMessage ("ApplyDamage", 1);
+			other.collider.SendMessage ("ApplyDamage", damage);
 		}
 	}
 }
